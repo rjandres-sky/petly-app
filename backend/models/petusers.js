@@ -7,6 +7,7 @@ const PetsUserSchema = new Schema({
     password : {type : String, required : true},
     profile_picture : {type : String},
     pet_type : {type : String},
+    pet_name : {type : String},
     posts : [{type : Schema.Types.ObjectId, ref : 'posts'}],
     shared_posts : [{type : Schema.Types.ObjectId, ref : 'shared_posts'}]
 })
