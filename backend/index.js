@@ -10,6 +10,7 @@ const port = 8080;
 //import routers
 const AuthsRouter = require('./routers/routerAuths')
 const PetsRouter = require('./routers/routerPetUsers')
+const PostsRouter = require('./routers/routerPosts')
 
 server.use(express.json())
 server.use(morgan('dev'));
@@ -25,6 +26,7 @@ server.get('/', (request, response) => {
 
 server.use('/pets', PetsRouter)
 server.use('/auth', AuthsRouter)
+server.use('/posts', PostsRouter)
 
 server.listen(
     port,
