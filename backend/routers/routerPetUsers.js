@@ -28,4 +28,22 @@ router.get('/:id', (request, response) => {
     .catch(error => console.log(error))
 })
 
+router.put('/:id', (request, response) =>{
+    Pets.updateOne({_id : request.params.id},
+        { $set: request.body })
+        .then(result => {
+            if (result.modifiedCount === 1) {
+                response.status(204).send(result);
+            }
+        })
+        .catch(error => response.status(404).send(error))
+    
+})
+
+router.delete('/:id', (request, response) => {
+Pets.deleteOne({_id : request.params.id})
+.then( () => response.status(204).send("Pets Users deleted"))
+.catch(error => response.status(400).send(error))
+})
+
 module.exports = router

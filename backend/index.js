@@ -11,6 +11,9 @@ const port = 8080;
 const AuthsRouter = require('./routers/routerAuths')
 const PetsRouter = require('./routers/routerPetUsers')
 const PostsRouter = require('./routers/routerPosts')
+const CommentsRouter = require('./routers/routerComments')
+const SharedRouter = require('./routers/routerSharedPosts')
+const ReactsRouter = require('./routers/routerReacts')
 
 server.use(express.json())
 server.use(morgan('dev'));
@@ -27,6 +30,9 @@ server.get('/', (request, response) => {
 server.use('/pets', PetsRouter)
 server.use('/auth', AuthsRouter)
 server.use('/posts', PostsRouter)
+server.use('/comments', CommentsRouter)
+server.use('/reacts', ReactsRouter)
+server.use('/shared', SharedRouter)
 
 server.listen(
     port,
