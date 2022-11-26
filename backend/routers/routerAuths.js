@@ -6,30 +6,74 @@ const bcrypt = require('bcrypt')
 const Pets = require('../models/petusers')
 
 router.post('/login', (request, response) => {
-    console.log(request.body.username)
     Pets.findOne({ username: request.body.username })
         .then(result => {
-            console.log(request.password)
             if (result !== null) {
                 bcrypt.compare(request.body.password, result.password, (err, match) => {
-                    console.log(request.password)
                     if (match) {
                         // Autheticated, valid email and password
-                        Pets.findOne({_id : result._id})
-                        .select({password : 0, posts : 0, shared_posts : 0})
-                        .then(result => {
-                            response.status(200).send(result)})
+                        Pets.findOne({ _id: result._id })
+                            .select({ password: 0, posts: 0, shared_posts: 0 })
+                            .then(result => {
+                                response.status(200).send(result)
+                            })
                     } else {
                         response.status(400).send("Invalid Username or Password")
                     }
                 })
+            } else {
+                response.status(400).send("Invalid Username or Password")
             }
         })
-        .catch(error => response.status(400).send("Invalid Username or Password"))
+        .catch(error => response.status(404).send("Invalid Username or Password"))
 });
 
-
-router.post('/register', (request, respond)=>{
+router.post('/register', async (request, response) => {
+    await bcrypt.hash(request.body.password, 10)
+        .then((hashedPassword) => {
+            const pet = new Pets({ ...request.body, password: hashedPassword })
+            pet.save()
+                .then(result => {
+                    response.status(204).send(result);
+                })
+                .catch(error => response.status(400).send(error))
+        })
+        .catch(error => response.status(400).send(error))
 
 })
+
+router.put('/:id/change', async (request, response) => {
+    Pets.findOne({ _id: request.params.id })
+        .then(result => {
+            if (result !== null) {
+                bcrypt.compare(request.body.currentpassword, result.password, async (err, match) => {
+                    if (match) {
+                        await bcrypt.hash(request.body.newpassword, 10)
+                            .then(hashedPassword =>
+                                Pets.updateOne(
+                                    { _id: request.params.id },
+                                    { $set: { password: hashedPassword } })
+                                    .then(result => {
+                                        if (result.modifiedCount === 1) {
+                                            response.status(204).send({ status: "Password changed" });
+                                        }
+                                    })
+                                    .catch(error => response.status(400).send(error))
+                            )
+                            .catch(error => response.status(404).send("Invalid Password"))
+
+                    } else {
+                        response.status(400).send("Password not match")
+                    }
+                })
+            } else {
+                response.status(400).send("Password not match")
+            }
+        })
+        .catch(error => response.status(404).send("Invalid Username or Password"))
+
+
+
+});
+
 module.exports = router;
