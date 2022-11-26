@@ -17,7 +17,7 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(helmet());
 
-mongoose.connect('mongodb+srv://petly_user:dictmerng2@cluster0.dfs2tzl.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://petly_user:dictmerng2@cluster0.dfs2tzl.mongodb.net/petly?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 server.get('/', (request, response) => {
     response.send(`Welcome to API`);
