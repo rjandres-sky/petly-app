@@ -5,12 +5,25 @@ const router = express.Router()
 const Pets = require('../models/petusers')
 
 //return all pet users
-router.get('/', (req, res) => {
+router.get('/', (request, response) => {
     Pets.find()
+    .select({password : 0})
     .populate('posts')
     .populate('shared_posts')
     .then(result => {
-        res.status(200).send(result)
+        response.status(200).send(result)
+    })
+    .catch(error => console.log(error))
+})
+
+// get request for login users
+router.get('/:id', (request, response) => {
+    Pets.find()
+    .select({password : 0})
+    .populate('posts')
+    .populate('shared_posts')
+    .then(result => {
+        response.status(200).send(result)
     })
     .catch(error => console.log(error))
 })
