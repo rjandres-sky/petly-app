@@ -4,7 +4,7 @@ const GetStartedPage = () => {
     const navigate = useNavigate()
 
     const onClickHandler = () => {
-        navigate('/profile-page')
+        navigate('/news-feed')
     }
     return(
         <div className="get-started container">
