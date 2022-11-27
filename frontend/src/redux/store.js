@@ -6,4 +6,4 @@ import reducer from './reducer'
 //const store = creaStore (reducer);
 const store = configureStore({reducer: reducer});
 
-export default store
+export default store;
