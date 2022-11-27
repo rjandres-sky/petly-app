@@ -12,7 +12,13 @@ const reducer = (state = initialState, action) => {
             axios.post('http://localhost:8080/auth/register', newPet).then(result => {
                 alert(result.data.status);
             });
-            return { ...state, allPets: [ ...state.allPets, newPet ]};
+        return { ...state, allPets: [ ...state.allPets, newPet ]};
+
+        case 'LOAD_CURRENTUSER' :
+            return [action.payload];
+            
+        case 'LOGOUT_CURRENTUSER' :
+            return []
 
         default: 
         return state;
