@@ -11,4 +11,4 @@ const SharedPostsSchema = new Schema({
     date_updated : {type : Date, deafaul : Date.now}
 })
 
-module.exports = mongoose.model('sharedposts', SharedPostsSchema)
+module.exports = mongoose.model('shared_posts', SharedPostsSchema)
