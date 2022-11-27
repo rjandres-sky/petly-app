@@ -8,8 +8,8 @@ const PetsUserSchema = new Schema({
     profile_picture : {type : String},
     pet_type : {type : String},
     pet_name : {type : String},
-    posts : [{type : Schema.Types.ObjectId, ref : 'posts', default: []}],
-    shared_posts : [{type : Schema.Types.ObjectId, ref : 'shared_posts', default : []}],
+    posts : [{type : Schema.Types.ObjectId, ref : 'posts', default: [], autopopulate : true}],
+    shared_posts : [{type : Schema.Types.ObjectId, ref : 'shared_posts', default : [], autopopulate : true}],
     date_joined : {type : Date, dafault : Date.now}
 })
 module.exports = mongoose.model('pets', PetsUserSchema)
