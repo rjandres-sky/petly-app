@@ -1,0 +1,17 @@
+.profile-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+.pet-type {
+    background-color: #184B46;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+}
+
+.pet-icon {
+    width: 150px;
+    height: 150px;
+}
