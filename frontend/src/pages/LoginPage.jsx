@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Link , useNavigate} from "react-router-dom"
 import axios from 'axios'
 
+import '../images/sample_logo.jpg'
+
+
 const LoginPage = ({handleUser}) => {
     const dispatch = new useDispatch()
     const navigate = new useNavigate ()
@@ -32,29 +35,27 @@ const LoginPage = ({handleUser}) => {
     }
 
     return (
-        <div className="login container">
-            <h2> Login </h2>
-            <form onSubmit={e => e.preventDefault()}>
-                <input 
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                    required
-                />
-                <br/>
-                <input 
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
-                <br/>
-                {errMsg !== '' && <div className="error-message"><small> {errMsg} </small></div>}
-                <input type="submit" value='Login' onClick={loginEventHandler}/>
-            </form>
-            <p> No account? <Link to ='/register'> Register </Link> </p>
+        <div className="login">
+            <img class="w-100" src={require("../images/sample_logo.jpg")} alt = 'logo'/>
+            <div className="login-form">
+                <div className="title">Sign In</div>
+                <div className="form">
+                    <form onSubmit={e => e.preventDefault()}>
+                        <div className="input-container">
+                            <label>Username </label>
+                            <input type="text" name="uname" value={username} onChange={e => setUsername(e.target.value)} required />
+                        </div>
+                        <div className="input-container">
+                            <label>Password </label>
+                            <input type="password" name="pass" value={password} onChange={e => setPassword(e.target.value)} required />
+                        </div>
+                        {errMsg !== '' && <div className="error-message"><small> {errMsg} </small></div>}
+                        <div className="button-container">
+                            <input type="submit" onClick={loginEventHandler} value="Login"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }

@@ -7,17 +7,20 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import GetStartedPage from './pages/GetStartedPage';
 import NewsFeedPage from './pages/NewsFeedPage';
+import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path='/' element={<LandingPage />} />
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/register' element={<RegisterPage />} />
-      <Route path='/get-started' element={<GetStartedPage />} />
-      {/* <Route path='/profile' element={<ProfilePage />} /> */}
-      <Route path='/news-feed' element={<NewsFeedPage />} />
-    </Routes>
+    <div className ='main-div'>
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/get-started' element={<GetStartedPage />} />
+        <Route path='/profile' element={<ProfilePage/>} />
+        <Route path='/news-feed' element={<NewsFeedPage />} />
+      </Routes>
+    </div>
   );
 }
 
