@@ -8,6 +8,7 @@ const Comments = require('../models/commentmodel')
 
 router.get('/', (request, response) => {
     Comments.find()
+    .populate({path : 'pet_id', select : 'name'})
     .then(result => response.status(200).send(result))
     .catch(error => response.status(404).send(error))
 })

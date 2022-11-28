@@ -8,8 +8,8 @@ const SharedPostsSchema = new Schema({
     comments : [{type : Schema.Types.ObjectId, ref : 'comments', default : [], autopopulate : true}],
     reacts : [{type : Schema.Types.ObjectId, ref : 'reacts', default : [], autopopulate : true}],
     body : {type : String, require : true},
-    date_created : {type : Date, deafaul : Date.now},
-    date_updated : {type : Date, deafaul : Date.now}
+    date_created : {type : Date, default : Date.now},
+    date_updated : {type : Date, default : Date.now}
 })
 
 SharedPostsSchema.plugin(populate)

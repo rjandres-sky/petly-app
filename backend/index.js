@@ -14,6 +14,7 @@ const PostsRouter = require('./routers/routerPosts')
 const CommentsRouter = require('./routers/routerComments')
 const SharedRouter = require('./routers/routerSharedPosts')
 const ReactsRouter = require('./routers/routerReacts')
+const AllPost_SharedPost = require('./routers/routerPost_SharedPost')
 
 server.use(express.json())
 server.use(morgan('dev'));
@@ -33,10 +34,8 @@ server.use('/posts', PostsRouter)
 server.use('/comments', CommentsRouter)
 server.use('/reacts', ReactsRouter)
 server.use('/shared', SharedRouter)
+server.use('/all', AllPost_SharedPost)
 
-server.listen(
-    port,
-    () => {
+server.listen(port)
+    
         console.log(`Server running on port ${port}`);
-    }
-);

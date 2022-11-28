@@ -6,6 +6,7 @@ const Posts = require('../models/postmodel')
 
 router.get('/', (request, response) => {
     Posts.find()
+    .populate({path : 'pet_id', select : 'name'})
     .then(result => response.status(200).send(result))
     .catch(error => response.status(404).send(error))
 })
