@@ -7,7 +7,7 @@ const NewsFeedPage = () => {
     const { data } = require('../data')
 
     return (
-        <div className='profile-container'>
+         <div className='profile-container container card w-50 vh-100 '>
                 THIS IS NEWS FEED PAGE
                 <ProfilePageButton/>
                 {       

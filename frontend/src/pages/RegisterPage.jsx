@@ -82,12 +82,12 @@ const RegisterPage = () => {
                                 className="card"
                                 style={{ "border-radius": "15px" }}
                             >
-                                <div className="card-body p-5 shadow-lg">
+                                <div className="card-body p-5 shadow-lg ">
                                     <h2 className="text-uppercase text-center mb-3">
                                         Create an account
                                     </h2>
                                     <form onSubmit={onSubmitFormHandler}>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Name
                                             </label>
@@ -98,7 +98,7 @@ const RegisterPage = () => {
                                                 onChange={onChangeNameHandler}
                                             />
                                         </div>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Username
                                             </label>
@@ -111,7 +111,7 @@ const RegisterPage = () => {
                                                 }
                                             />
                                         </div>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Password
                                             </label>
@@ -124,7 +124,7 @@ const RegisterPage = () => {
                                                 }
                                             />
                                         </div>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Pet Name
                                             </label>
@@ -137,7 +137,7 @@ const RegisterPage = () => {
                                                 }
                                             />
                                         </div>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Choose profile picture
                                             </label>
@@ -151,7 +151,7 @@ const RegisterPage = () => {
                                                 }
                                             />
                                         </div>
-                                        <div className="form-outline mb-2">
+                                        <div className="form-outline mb-1">
                                             <label className="form-label">
                                                 Select pet type
                                             </label>
@@ -174,7 +174,7 @@ const RegisterPage = () => {
                                                 })}
                                             </select>
                                         </div>
-                                        <div className="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-center mt-3">
                                             <button
                                                 type="submit"
                                                 className="btn btn-success center"
@@ -182,7 +182,7 @@ const RegisterPage = () => {
                                                 Create pet account                                          
                                             </button>
                                         </div>
-                                        <div className="form-outline mb-0 text-center ">
+                                        <div className="form-outline mb-0 mt-2 text-center ">
                                             Already have an account?
                                             <Link to="/login"> Login </Link>
                                         </div>
