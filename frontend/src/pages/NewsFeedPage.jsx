@@ -8,9 +8,9 @@ const NewsFeedPage = () => {
 
     return (
         <div
-            className='profile-container'>
-                hsuddsjkldkcx
-                {<div
+            className='profile-container container card'>
+            hsuddsjkldkcx
+            {<div
                 className='pet-type-container'>
                 {
                     data.map((items) => (
@@ -19,10 +19,10 @@ const NewsFeedPage = () => {
                             key={items.name}>
                             {console.log('icons', items.icon)}
                             <div
-                                className='pet-icon'> 
-                                <img 
-                                src={items.icon} 
-                                alt='' />
+                                className='pet-icon'>
+                                <img
+                                    src={items.icon}
+                                    alt='' />
                             </div>
                         </div>
                     ))
