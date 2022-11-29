@@ -1,4 +1,5 @@
 import React from "react";
+import Buttons from './Buttons';
 import CommentComponent from "./CommentComponent";
 import "./PostComponent.css";
 //import Avatar from "@material-ui/core/Avatar";
@@ -24,6 +25,7 @@ function PostComponent({ post }) {
         </h4>
         {/* Image */}
         {/* <img className="post__image" src={imageUrl} alt="" /> */}
+        <Buttons />
         
         <div style={{paddingLeft : '30px', paddingRight : '5px'}}>
       {post.comments && post.comments.map(comment => {

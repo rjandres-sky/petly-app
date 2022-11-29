@@ -1,0 +1,11 @@
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.buttons-container button {
+    padding: 0;
+    border: none;
+    background: none;
+}

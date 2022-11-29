@@ -2,24 +2,18 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Buttons from '../components/Buttons'
 import PostComponent from '../components/PostComponent'
 import '../styles/NewsFeedPageStyles.css'
-import { FaTrash } from "react-icons/fa";
 
 
 const NewsFeedPage = () => {
-    const [posts, setPosts] = useState([])
     const allPost = useSelector(state => state.Posts)
     const dispatch = new useDispatch()
     console.dir(allPost)
+    const [posts, setPosts] = useState([])
 
     const { data } = require('../data')
-
-    const addPost = (post) => {
-        const updatedPosts = [...posts]
-        updatedPosts.unshift(post)
-        setPosts(updatedPosts)
-    }
 
     const getAllPost = () => {
         axios.get('http://localhost:8080/all')
@@ -31,6 +25,9 @@ const NewsFeedPage = () => {
             )
             .catch(console.log)
     }
+
+
+
     useEffect(() => {
         getAllPost()
 
@@ -47,7 +44,7 @@ const NewsFeedPage = () => {
                         <div
                             className='pet-type'
                             key={items.name}>
-                            {console.log('icons', items.icon)}
+                            {/* {console.log('icons', items.icon)} */}
                             <div
                                 className='pet-icon'>
                                 <img
@@ -61,20 +58,18 @@ const NewsFeedPage = () => {
             <div
                 className='pet-username-container'>
                 <div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div
+                className='pet-post-container'>
                     {allPost.map(post => {
                         return (
                             <PostComponent post = {post} />
                         )
                     })}
-                </div>
-                <div className='delete-icon'>
-                <FaTrash />
-                </div>
-            </div>
-            <div
-                className='pet-post-container'>
-
-
             </div>
             <div
                 className='pet-reacts-container'>
