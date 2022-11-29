@@ -1,10 +1,18 @@
 import { useSelector } from 'react-redux'
 import '../styles/NewsFeedPageStyles.css'
+import { FaTrash } from "react-icons/fa";
 
 
 const NewsFeedPage = () => {
+    const [posts, setPosts] = useState([])
 
     const { data } = require('../data')
+
+    const addPost = (post) => {
+        const updatedPosts = [...posts]
+        updatedPosts.unshift(post)
+        setPosts(updatedPosts)
+    }
 
     return (
         <div
@@ -30,11 +38,11 @@ const NewsFeedPage = () => {
             </div>}
             <div
                 className='pet-username-container'>
-                <div>
-
+                <div className='pet-username'>
+                    pet_username
                 </div>
-                <div>
-
+                <div className='delete-icon'>
+                <FaTrash />
                 </div>
             </div>
             <div
