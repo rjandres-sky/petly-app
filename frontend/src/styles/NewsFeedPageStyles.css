@@ -3,15 +3,16 @@
     flex-flow: column nowrap;
 }
 
-
-.pet-type {
-    background-color: #184B46;
-    width: 175px;
-    height: 175px;
-    border-radius: 50%;
+.pet-icon img {
+    width: 125px;
+    height: 125px;
+    padding: 25px;
 }
 
 .pet-icon {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background-color: #184B46;
+
 }

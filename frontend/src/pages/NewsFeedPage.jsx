@@ -1,17 +1,16 @@
 import { useSelector } from 'react-redux'
 import '../styles/NewsFeedPageStyles.css'
-import ProfilePageButton from '../components/ProfilePageButton'
+
 
 const NewsFeedPage = () => {
-    
+
     const { data } = require('../data')
 
     return (
-         <div className='profile-container container card w-50 vh-100 '>
-                THIS IS NEWS FEED PAGE
-                <ProfilePageButton/>
-                {       
-                <div
+        <div
+            className='profile-container'>
+                hsuddsjkldkcx
+ {           <div
                 className='pet-type-container'>
                 {
                     data.map((items) => (
@@ -19,7 +18,8 @@ const NewsFeedPage = () => {
                             className='pet-type'
                             key={items.name}>
                             {console.log('icons', items.icon)}
-                            <div className='pet-icon'> 
+                            <div
+                                className='pet-icon'> 
                                 <img 
                                 src={items.icon} 
                                 alt='' />
@@ -28,9 +28,10 @@ const NewsFeedPage = () => {
                     ))
                 }
             </div>}
-            <div className='pet-username-container'>
+            <div
+                className='pet-username-container'>
                 <div>
-                    pet username here
+
                 </div>
                 <div>
 
