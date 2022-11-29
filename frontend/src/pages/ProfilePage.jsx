@@ -1,61 +1,72 @@
-import '../images/dog_logo/vecteezy_dog-face-logo_6720668.jpg'
+import { Link } from 'react-router-dom'
+import { useState } from 'react';
+
+//sample profile picture 
+import "../images/vecteezy_dog-face-logo_6720668.jpg";
 
 const ProfilePage = () => {
     return (
-        <div className="profile-page container card w-50 m-7 mt-2 shadow-lg">
+        <section className="profile-page container card w-50 mt-2 shadow-lg">
             <div className=" header d-flex justify-content-between ">
-                <button className="btn btn-outline-success m-5">
+                <button className="btn btn-outline-success m-4">
                     Save changes
                 </button>
-                <button className="btn btn-outline-warning m-5">Logout</button>
+                <button className="btn btn-outline-warning m-4">Logout</button>
             </div>
-            <div className='pet-data card-body  '>
-                <p className="text-center h2"> My Pet Profile </p>
-                    <button className='btn'> 
-                        <img 
-                            className='rounded-circle shadow-4-strong h-25 w-25' 
-                            src={require('../images/dog_logo/vecteezy_dog-face-logo_6720668.jpg')}
-                            alt="profile_picture" 
-                        />
-                </button>
-                <div className='pet-name d-flex justify-content-center m-1 p-1 '>
+            <p className="text-center h2"> My Pet Profile </p>
+            <form className="pet-data card-body ">
+                <div className="pet-name d-flex align-items-center justify-content-center m-1 p-1 form-outline">
+                    <button className="btn">
+                        <img
+                            className="rounded-circle shadow-4-strong h-25 w-25 shadow-lg"
+                            value="!!insert value here"
+                            src={require("../images/vecteezy_dog-face-logo_6720668.jpg")}
+                            alt="profile_picture"
+                        />{" "}
+                        <br /> <p> + change profile picture </p>
+                    </button>
+                </div>
+                <div className="pet-name d-flex justify-content-center m-1 p-1 form-outline">
                     <input
-                        className="form-control form-control-lg text-center w-50"
-                        type='text'
-                        placeholder='{pet name}'
-                        value=''
+                        className="form-control text-center w-50"
+                        type="text"
+                        placeholder="{pet name}"
+                        value=""
                     />
                 </div>
-                <div className='pet-username d-flex justify-content-center  m-1 p-1 '>
+                <div className="username d-flex align-items-center justify-content-center m-1 p-1 form-outline">
                     <input
-                        className="form-control form-control-lg text-center w-50"
-                        type='text'
-                        placeholder='{username}'
-                        value=''
+                        className="form-control text-center w-50"
+                        type="text"
+                        placeholder="{username}"
+                        value=""
                     />
                 </div>
-                <div className='pet-pw d-flex justify-content-center  m-1 p-1 '>
+                <div className="password d-flex align-items-center justify-content-center m-1 p-1 form-outline">
                     <input
-                        className="form-control form-control-lg text-center w-50"
-                        type='password'
-                        placeholder='{password}'
-                        value=''
+                        className="form-control text-center w-50"
+                        type="password"
+                        placeholder="**************"
+                        value=""
                     />
                 </div>
-                <div className='date-created d-flex justify-content-center  m-1 p-1 '>
-                    <p> Date created : {'insert value'} </p>
+                <div className="date-created d-flex justify-content-center">
+                    <p> Date created : {"insert value"} </p>
                 </div>
-            </div>
-            <div className="action-button card-body align-self-center">
+            </form>
+            <div className="action-button align-self-center m-2">
                 <button className="btn btn-outline-info m-1">
                     Change password
                 </button>
-                <button className="btn btn-outline-danger m-1"> Delete Account </button>
+                <button className="btn btn-outline-danger m-1">
+                    {" "}
+                    Delete Account{" "}
+                </button>
             </div>
-            <div className='footer'>
-                this is footer/nav buttons
+            <div className="m-3">
+                <Link to ='/news-feed' > back to news-feed </Link>
             </div>
-        </div>
+        </section>
     );
 };
 export default ProfilePage;
