@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState } from "react";
 
-//sample profile picture 
+//sample profile picture
 import "../images/vecteezy_dog-face-logo_6720668.jpg";
+import BottomNav from "../components/BottomNav";
 
 const ProfilePage = () => {
+    const [ name, setName ] = useState('')
+    const [ password, setPassword ] = useState(null)
+    const [ profilePicture, setProfilePicture ] = useState(null)
+    const [ username, setUsername ] = useState ('')
+
     return (
-        <section className="profile-page container card w-50 mt-2 shadow-lg">
+        <section className="profile-page d-flex container-fluid card w-50 mt-5 shadow-lg">
             <div className=" header d-flex justify-content-between ">
                 <button className="btn btn-outline-success m-4">
                     Save changes
@@ -15,16 +20,17 @@ const ProfilePage = () => {
             </div>
             <p className="text-center h2"> My Pet Profile </p>
             <form className="pet-data card-body ">
-                <div className="pet-name d-flex align-items-center justify-content-center m-1 p-1 form-outline">
-                    <button className="btn">
+                <div className="profile-pic d-flex align-items-center justify-content-center m-1 p-1 form-outline">
+                    <label class="btn btn-default">
+                        <input type="file" hidden />
                         <img
                             className="rounded-circle shadow-4-strong h-25 w-25 shadow-lg"
                             value="!!insert value here"
                             src={require("../images/vecteezy_dog-face-logo_6720668.jpg")}
                             alt="profile_picture"
                         />{" "}
-                        <br /> <p> + change profile picture </p>
-                    </button>
+                        <br />
+                    </label>
                 </div>
                 <div className="pet-name d-flex justify-content-center m-1 p-1 form-outline">
                     <input
@@ -64,7 +70,7 @@ const ProfilePage = () => {
                 </button>
             </div>
             <div className="m-3">
-                <Link to ='/news-feed' > back to news-feed </Link>
+                <BottomNav/>
             </div>
         </section>
     );
