@@ -3,16 +3,17 @@
     flex-flow: column nowrap;
 }
 
-.pet-icon img {
-    width: 125px;
-    height: 125px;
-    padding: 25px;
-}
+/* .pet-icon img {
+    width: 150px;
+    height: 150px;
+    padding: 12.5px;
+} */
 
 .pet-icon {
-    width: 175px;
-    height: 175px;
+    display: flex;
+    flex-direction: row nowrap;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
     border-radius: 50%;
-    background-color: #184B46;
-
 }

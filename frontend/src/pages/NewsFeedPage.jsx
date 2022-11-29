@@ -10,7 +10,7 @@ const NewsFeedPage = () => {
         <div
             className='profile-container'>
                 hsuddsjkldkcx
- {           <div
+                {<div
                 className='pet-type-container'>
                 {
                     data.map((items) => (
