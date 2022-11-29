@@ -1,6 +1,10 @@
 
 export const data = [
     {
+        name: "all-pets",
+        icon: "../icon/all-pets.png"
+    },
+    {
         name: "dog",
         icon: "../icon/dog.png"
     },

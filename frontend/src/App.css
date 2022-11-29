@@ -6,6 +6,8 @@
     border: 1px solid black;
 } */
 
-body{
-    background-color: rgb(255, 194, 194);
+body {
+    background-color: #ffc8bd;
+    padding-left: 150px;
+    padding-right: 150px;
 }
