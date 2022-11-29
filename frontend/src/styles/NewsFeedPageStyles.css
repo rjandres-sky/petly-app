@@ -24,3 +24,8 @@
     padding: 5px;
     border-radius: 50%;
 }
+
+.pet-username-container {
+    display: flex;
+    flex-direction: row;
+}
