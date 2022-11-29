@@ -13,7 +13,7 @@ const LoginPage = ({ handleUser }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginEventHandler = (e) => {
+const loginEventHandler = (e) => {
         axios
             .post("http://localhost:8080/auth/login", {
                 username: username,
@@ -25,8 +25,11 @@ const LoginPage = ({ handleUser }) => {
                     alert("Login success!");
                     navigate("/news-feed");
                     dispatch({
-                        type: "LOAD_CURRENTUSER",
+                        type: "LOGIN_SUCCESS",
                         payload: result.data,
+                    });
+                    dispatch({
+                        type: "LOAD_ALLPOST"
                     });
                     handleUser(result.data);
                     setErrMsg("");
