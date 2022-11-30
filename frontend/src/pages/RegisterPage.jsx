@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,6 +31,7 @@ const RegisterPage = () => {
     const [profilePicture, setProfilePicture] = useState("");
     const [petType, setPetType] = useState("");
     const [petName, setPetName] = useState("");
+    const [selectedFile, setSelectedFile] = useState('')
 
     const onChangeNameHandler = (event) => {
         setName(event.target.value);
@@ -41,6 +43,13 @@ const RegisterPage = () => {
         setPassword(event.target.value);
     };
     const onChangeProfilePictureHandler = (event) => {
+        const file = event.target.files[0]
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            setSelectedFile( reader.result )
+        };
+
         setProfilePicture(event.target.value);
     };
     const onChangePetNamehandler = (event) => {
@@ -52,25 +61,26 @@ const RegisterPage = () => {
 
     const onSubmitFormHandler = (event) => {
         event.preventDefault();
-        dispatch({
-            type: "REGISTER",
-            payload: {
-                name: name,
-                username: username,
-                password: password,
-                profile_picture: profilePicture,
-                pet_type: petType,
-                pet_name: petName,
-            },
-        });
-        alert('registered successfuly')
-        setName("");
-        setUsername("");
-        setPassword("");
-        setProfilePicture("");
-        setPetType("");
-        setPetName("");
-        navigate("/login");
+        const formData = new FormData();
+        formData.append('name', name)
+        formData.append('username', username)
+        formData.append('profile_picture', selectedFile)
+        formData.append('password', password)
+        formData.append('pet_type', petType)
+        formData.append('pet_name', petName)
+
+        axios.post('http://localhost:8080/auth/register', formData)
+            .then(result => {
+                alert('registered successfuly')
+                setName("");
+                setUsername("");
+                setPassword("");
+                setProfilePicture("");
+                setPetType("");
+                setPetName("");
+                navigate("/login");
+             });
+        
     };
 
     return (

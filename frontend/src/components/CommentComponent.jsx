@@ -1,7 +1,7 @@
 import React from "react";
 import "./PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
-//import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 
 function CommentComponent({ comment }) {
   return (
@@ -9,7 +9,11 @@ function CommentComponent({ comment }) {
     <div className="post card-body m-2 p-2 shadow-lg rounded">
       <div className="post__header">
         {/* Header: avatar with username */}
-        {/*  */}
+        <Avatar
+          className="post__avatar"
+          alt={comment.pet_id.name}
+          src={comment.pet_id.profile_picture}
+        />
         <h3>{comment.pet_id.name}</h3>
       </div>
       {/* Username + caption */}

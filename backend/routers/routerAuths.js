@@ -1,6 +1,30 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
+const multer = require('multer')
+const mongoose = require('mongoose')
+const uuidv4 = require('uuid/v4')
+const DIR = './uploads/';
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, uuidv4() + '-' + fileName)
+    }
+});
+var upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    }
+});
 
 //import model
 const Pets = require('../models/petusers')
@@ -28,7 +52,8 @@ router.post('/login', (request, response) => {
         .catch(error => response.status(404).send("Invalid Username or Password"))
 });
 
-router.post('/register', async (request, response) => {
+router.post('/register', upload.single('profile_picture'), async (request, response, next) => {
+    console.log(request.file)
     await bcrypt.hash(request.body.password, 10)
         .then((hashedPassword) => {
             const pet = new Pets({ ...request.body, password: hashedPassword })

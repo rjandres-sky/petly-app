@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const populate = require('mongoose-autopopulate')
 
 const CommentSchema = new Schema({
-    pet_id : {type : Schema.Types.ObjectId, ref : "pets", require : true, autopopulate :{select: 'name pet_name'}},
+    pet_id : {type : Schema.Types.ObjectId, ref : "pets", require : true, autopopulate :{select: 'name pet_name profile_picture'}},
     comments : [{type : Schema.Types.ObjectId, ref : 'comments', default : [], autopopulate : true}],
     reacts : [{type : Schema.Types.ObjectId, ref : 'reacts', default : [], autopopulate : true}],
     body : {type : String, require : true},
