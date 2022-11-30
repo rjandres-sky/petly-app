@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Buttons from '../components/Buttons'
 import PostComponent from '../components/PostComponent'
 import '../styles/NewsFeedPageStyles.css'
@@ -9,7 +10,10 @@ import '../styles/NewsFeedPageStyles.css'
 
 const NewsFeedPage = () => {
     const allPost = useSelector(state => state.Posts)
+    const currentUser = useSelector(state => state.Auth)
+    const navigate = new useNavigate();
     const dispatch = new useDispatch()
+    
     console.dir(allPost)
     const [posts, setPosts] = useState([])
 
@@ -29,6 +33,10 @@ const NewsFeedPage = () => {
 
 
     useEffect(() => {
+        console.log(currentUser._id)
+        if(currentUser._id === undefined) {
+            navigate('/login')
+        }
         getAllPost()
 
     }, [])
@@ -75,7 +83,6 @@ const NewsFeedPage = () => {
                 className='pet-reacts-container'>
 
             </div>
-            b
             <div
                 className='pet-caption-container'>
                 <div
