@@ -14,13 +14,6 @@ const SidebarData = [
         icon: <CgIcons.CgProfile/>,
         cName: 'nav-text'
     },
-
-    {
-        title: 'Switch account',
-        path: '/login',
-        icon: <AiIcons.AiOutlineUserSwitch/>,
-        cName: 'nav-text'
-    },
     {
         title: 'Logout',
         path: '/',

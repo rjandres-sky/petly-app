@@ -1,3 +1,6 @@
+.newsfeed-page{
+    margin-left: 50px;
+}
 .profile-container {
     display: flex;
     flex-flow: column nowrap;

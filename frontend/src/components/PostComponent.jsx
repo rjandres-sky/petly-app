@@ -1,5 +1,4 @@
 import React from "react";
-import Buttons from './Buttons';
 import CommentComponent from "./CommentComponent";
 import "./PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
@@ -28,8 +27,6 @@ function PostComponent({ post }) {
         {/* <img className="post__image" src={imageUrl} alt="" /> */}
         
           <ReactionsComponent id= {post._id} location = {post.post_id === undefined ? 'post' : 'shared'} reacts = {post.reacts}/>
-        
-        <Buttons />
         
         <div style={{paddingLeft : '30px', paddingRight : '5px'}}>
       {post.comments && post.comments.map(comment => {
