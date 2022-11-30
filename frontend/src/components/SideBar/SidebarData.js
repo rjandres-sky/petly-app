@@ -3,21 +3,21 @@ import * as CgIcons from 'react-icons/cg'
 
 const SidebarData = [
     {
-        title: 'News Feed',
+        title: 'Home',
         path: '/news-feed',
         icon: <AiIcons.AiFillHome/>,
         cName: 'nav-text'
     },
     {
         title: 'My Profile',
-        path: '/profile-page',
+        path: '/profile',
         icon: <CgIcons.CgProfile/>,
         cName: 'nav-text'
     },
 
     {
-        title: 'About',
-        path: '/about',
+        title: 'Switch account',
+        path: '/login',
         icon: <AiIcons.AiOutlineInfoCircle/>,
         cName: 'nav-text'
     },
