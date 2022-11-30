@@ -21,13 +21,26 @@ router.post('/post', async (request, response) => {
     .catch(error => response.status(400).send(error))
 })
 
+router.put('/:id', (request, response) => {
+    Reactions.updateOne(
+        {_id : request.params.id}, 
+        { $set: request.body })
+    .then(
+        result => {
+            if(result.modifiedCount === 1) {
+                response.status(204).send('Reaction changed')
+            }
+        }
+    ).catch(err => response.status(400).send(err))
+})
+
 router.post('/shared', async (request, response) => {
     const reaction = new Reactions(request.body)
     await reaction.save()
     .then(result => {
         SharedPosts.updateOne(
             {_id : request.body.shared_id},
-            {$push : {comments : result._id.toString()}}
+            {$push : {reacts : result._id.toString()}}
             )
             .then(() => response.status(204).send(reaction))
             .catch(err => response.status(400).send(err))
@@ -41,7 +54,7 @@ router.post('/comment', async (request, response) => {
     .then(result => {
         Comments.updateOne(
             {_id : request.body.comment_id},
-            {$push : {comments : result._id.toString()}}
+            {$push : {reacts : result._id.toString()}}
             )
             .then(() => response.status(204).send(reaction))
             .catch(err => response.status(400).send(err))

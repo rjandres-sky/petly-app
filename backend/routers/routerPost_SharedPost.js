@@ -20,7 +20,7 @@ router.get('/', async (request, response) => {
                 .then(async result =>{
                     await combinedPost.push(...result)
                     //allSharedPost = result
-                    console.log(combinedPost)
+                    //console.log(combinedPost)
                     response.status(200).send(combinedPost.sort(post => post.date_created))
                 })
         })
