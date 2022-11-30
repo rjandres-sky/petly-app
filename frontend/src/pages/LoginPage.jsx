@@ -131,7 +131,7 @@ const LoginPage = ({ handleUser }) => {
                                 <div 
                                 className="col-md-6 col-lg-5 d-none d-md-block">
                                     <img 
-                                    src="../images/PetLy-login-gif-3.gif"
+                                    src={require("../images/PetLy-login-gif-3.gif")}
                                     alt="login form" 
                                     className="img-fluid" 
                                     />
@@ -140,13 +140,6 @@ const LoginPage = ({ handleUser }) => {
                                     <div className="card-body p-4 p-lg-5 text-black">
 
                                         <form onSubmit={(e) => e.preventDefault()}>
-
-                                            <div className="d-flex align-items-center mb-3 pb-1">
-                                                <i 
-                                                className="fas fa-cubes fa-2x me-3" >
-                                                </i>
-                                                <span className="h1 fw-bold mb-0">Logo</span>
-                                            </div>
 
                                             <h5 
                                             className="fw-normal mb-3 pb-3" 
@@ -202,10 +195,10 @@ const LoginPage = ({ handleUser }) => {
                                             href="#!">Forgot password?</a>
                                             <p 
                                             className="mb-5 pb-lg-2" 
-                                            >Don't have an account? 
+                                            >Don't have an account?  
                                             <Link to='/register'
                                             className='register'
-                                            >Register here
+                                            > Register here
                                             </Link>
                                             </p>
                                             <a 
@@ -213,7 +206,7 @@ const LoginPage = ({ handleUser }) => {
                                             className="small text-muted">Terms of use.</a>
                                             <a 
                                             href="#!"
-                                            className="small text-muted">Privacy policy</a>
+                                            className="small text-muted">  Privacy policy</a>
                                         </form>
 
                                     </div>
