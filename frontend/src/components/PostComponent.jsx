@@ -10,7 +10,7 @@ function PostComponent({ post }) {
   console.log(post.post_id)
   return (
     <>
-      <div className="post">
+      <div className="post card-body m-3 p-3 shadow-lg rounded">
         <div className="post__header">
           {/* Header: avatar with username */}
           {/* <Avatar
