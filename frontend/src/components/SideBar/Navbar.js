@@ -1,5 +1,5 @@
 import { IconContext } from 'react-icons'
-import '../../images/PetLy-logo.png'
+import '../../images/PetLy-logo-primary.png'
 
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
@@ -17,8 +17,7 @@ const Navbar = () => {
             <nav className="nav-menu ">
                 {/* Website logo and name */}
                 <div className='petly-title'>
-                    <h1 > Petly </h1>  
-                    <img className='logo' src={require("../../images/PetLy-logo.png")}/>
+                    <img className='logo' src={require("../../images/PetLy-logo-primary.png")}/>
                 </div>
                 {/* nav-menu */}
                 <ul className='nav-menu-items' onClick={showSidebar}>

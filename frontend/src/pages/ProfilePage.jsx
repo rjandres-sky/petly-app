@@ -11,14 +11,14 @@ const ProfilePage = () => {
     const [ username, setUsername ] = useState ('')
 
     return (
-        <section className="profile-page d-flex container-fluid card w-50 mt-5 shadow-lg">
+        <section className="profile-page d-flex container-fluid card w-50 mt-5 p-5 shadow-lg">
             <Navbar/>
-            <div className=" header d-flex justify-content-between ">
+{/*             <div className=" header d-flex justify-content-between ">
                 <button className="btn btn-outline-success m-4">
                     Save changes
                 </button>
                 <button className="btn btn-outline-warning m-4">Logout</button>
-            </div>
+            </div> */}
             <p className="text-center h2"> My Pet Profile </p>
             <form className="pet-data card-body ">
                 <div className="profile-pic d-flex align-items-center justify-content-center m-1 p-1 form-outline">
@@ -63,7 +63,7 @@ const ProfilePage = () => {
             </form>
             <div className="action-button align-self-center m-2">
                 <button className="btn btn-outline-info m-1">
-                    Change password
+                    Save changes
                 </button>
                 <button className="btn btn-outline-danger m-1">
                     {" "}

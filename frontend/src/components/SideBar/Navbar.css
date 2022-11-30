@@ -1,6 +1,6 @@
 .nav-menu{
     background-color: white;
-    width: 35vh;
+    width: 45vh;
     height: 100vh;
     display: flex;
     justify-content: left;
@@ -13,8 +13,8 @@
 .petly-title {
     font-family: monospace ;
     color: blue;
-    padding: .5em;
-    margin-top: 1em;
+    padding: 1em;
+    margin: 1em;
     text-align: center;
 }
 
