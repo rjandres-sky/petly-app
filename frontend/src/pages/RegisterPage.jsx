@@ -231,45 +231,45 @@ const RegisterPage = () => {
 
                                             <span className="h2 fw-bold mb-0">Create your pet's account</span>
 
-                                            <div className="form-outline mb-1">
+                                            <div className="form-outline mb-4">
                                                 <label className="form-label">
                                                     Name
                                                 </label>
                                                 <input
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     type="text"
                                                     value={name}
                                                     onChange={onChangeNameHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-1">
+                                            <div className="form-outline mb-4">
                                                 <label className="form-label">
                                                     Username
                                                 </label>
                                                 <input
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     type="text"
                                                     value={username}
                                                     onChange={onChangeUsernameHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-1">
+                                            <div className="form-outline mb-4">
                                                 <label className="form-label">
                                                     Password
                                                 </label>
                                                 <input
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     type="password"
                                                     value={password}
                                                     onChange={onChangePasswordHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-1">
+                                            <div className="form-outline mb-4">
                                                 <label className="form-label">
                                                     Pet Name
                                                 </label>
                                                 <input
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     type="text"
                                                     value={petName}
                                                     onChange={onChangePetNamehandler}
@@ -280,7 +280,7 @@ const RegisterPage = () => {
                                                     Choose profile picture
                                                 </label>
                                                 <input
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     id="profile-picture"
                                                     type="file"
                                                     value={profilePicture}
@@ -291,7 +291,7 @@ const RegisterPage = () => {
                                                     Select pet type
                                                 </label>
                                                 <select
-                                                    className="form-control form-control-lg"
+                                                    className="form-control form-control-md"
                                                     value={petType}
                                                     onChange={onChangePetTypeHandler} 
                                                     required>
