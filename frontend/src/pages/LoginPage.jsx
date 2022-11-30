@@ -141,6 +141,11 @@ const LoginPage = ({ handleUser }) => {
 
                                         <form onSubmit={(e) => e.preventDefault()}>
 
+                                            <div className="welcome align-items-center mb-3 pb-1">
+                                                <span className="h1 fw-bold mb-0">Welcome back to PetLy</span> <br></br>
+                                                <p>Update your pet's social account today!</p>
+                                            </div>
+
                                             <h5 
                                             className="fw-normal mb-3 pb-3" 
                                             >Sign into your account</h5>
@@ -195,7 +200,7 @@ const LoginPage = ({ handleUser }) => {
                                             href="#!">Forgot password?</a>
                                             <p 
                                             className="mb-5 pb-lg-2" 
-                                            >Don't have an account?  
+                                            >Don't have an account? 
                                             <Link to='/register'
                                             className='register'
                                             > Register here
@@ -206,7 +211,7 @@ const LoginPage = ({ handleUser }) => {
                                             className="small text-muted">Terms of use.</a>
                                             <a 
                                             href="#!"
-                                            className="small text-muted">  Privacy policy</a>
+                                            className="small text-muted"> Privacy policy</a>
                                         </form>
 
                                     </div>

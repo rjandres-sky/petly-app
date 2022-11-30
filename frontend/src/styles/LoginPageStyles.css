@@ -47,3 +47,7 @@
 .text-muted {
     text-decoration: none;
 }
+
+.welcome {
+    flex-direction: row;
+}
