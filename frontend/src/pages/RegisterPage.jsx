@@ -190,7 +190,7 @@ const RegisterPage = () => {
                                         </div>
                                         <div className="form-outline mb-0 mt-2 text-center ">
                                             Already have an account?
-                                            <Link to="/login"> Login </Link>
+                                            <Link to="/"> Login </Link>
                                         </div>
                                     </form>
                                 </div>

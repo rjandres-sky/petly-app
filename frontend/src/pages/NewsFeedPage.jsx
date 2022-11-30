@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Buttons from '../components/Buttons'
 import PostComponent from '../components/PostComponent'
 import Navbar from '../components/SideBar/Navbar'
 import '../styles/NewsFeedPageStyles.css'
@@ -41,15 +40,17 @@ const NewsFeedPage = () => {
 
     useEffect(() => {
         if (currentUser._id === undefined) {
-            navigate('/login')
+            navigate('/')
         }
         getAllPost()
 
     }, [])
 
     return (
-        <section className='container d-flex justify-content-center m-2 p-2 '>
-            <Navbar />
+        <>
+        <Navbar />
+        <section className='newsfeed-page container d-flex justify-content-center m-2 p-2 '>
+
             <div className=' '>
                 {<div
                     className='pet-type-container'>
@@ -103,6 +104,7 @@ const NewsFeedPage = () => {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 
