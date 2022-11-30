@@ -23,4 +23,5 @@
     height: 100px;
     padding: 5px;
     border-radius: 50%;
+    cursor: pointer;
 }
