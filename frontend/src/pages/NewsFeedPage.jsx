@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Buttons from '../components/Buttons'
 import PostComponent from '../components/PostComponent'
+import Navbar from '../components/SideBar/Navbar'
 import '../styles/NewsFeedPageStyles.css'
 
 
@@ -42,9 +43,11 @@ const NewsFeedPage = () => {
     }, [])
 
     return (
+        <section className='container d-flex justify-content-center '>
+        <Navbar/>
         <div
-            className='profile-container'>
-            hsuddsjkldkcx
+            className=' card'>
+
             {<div
                 className='pet-type-container'>
                 {
@@ -95,6 +98,7 @@ const NewsFeedPage = () => {
                 </div>
             </div>
         </div>
+        </section>
     )
 }
 
