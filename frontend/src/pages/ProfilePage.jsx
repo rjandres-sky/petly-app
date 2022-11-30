@@ -2,7 +2,7 @@ import { useState } from "react";
 
 //sample profile picture
 import "../images/vecteezy_dog-face-logo_6720668.jpg";
-import BottomNav from "../components/BottomNav";
+import Navbar from "../components/SideBar/Navbar";
 
 const ProfilePage = () => {
     const [ name, setName ] = useState('')
@@ -12,6 +12,7 @@ const ProfilePage = () => {
 
     return (
         <section className="profile-page d-flex container-fluid card w-50 mt-5 shadow-lg">
+            <Navbar/>
             <div className=" header d-flex justify-content-between ">
                 <button className="btn btn-outline-success m-4">
                     Save changes
@@ -68,9 +69,6 @@ const ProfilePage = () => {
                     {" "}
                     Delete Account{" "}
                 </button>
-            </div>
-            <div className="m-3">
-                <BottomNav/>
             </div>
         </section>
     );
