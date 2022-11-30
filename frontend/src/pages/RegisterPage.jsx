@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
+import "../images/register.png";
+
 const RegisterPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -47,7 +49,7 @@ const RegisterPage = () => {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function () {
-            setSelectedFile( reader.result )
+            setSelectedFile(reader.result)
         };
 
         setProfilePicture(event.target.value);
@@ -78,131 +80,252 @@ const RegisterPage = () => {
                 setProfilePicture("");
                 setPetType("");
                 setPetName("");
-                navigate("/");
-             });
-        
+                navigate("/login");
+            });
+
     };
 
     return (
-        <section className="vh-100 mt-2">
-            <div className="mask d-flex align-items-center  gradient-custom-3">
-                <div className="container  h-75">
-                    <div className="row d-flex justify-content-center align-items-center ">
-                        <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div
-                                className="card"
-                                style={{ "border-radius": "15px" }}
-                            >
-                                <div className="card-body p-5 shadow-lg ">
-                                    <h2 className="text-uppercase text-center mb-3">
-                                        Create an account
-                                    </h2>
-                                    <form onSubmit={onSubmitFormHandler}>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Name
-                                            </label>
-                                            <input
-                                                className="form-control form-control-lg"
-                                                type="text"
-                                                value={name}
-                                                onChange={onChangeNameHandler}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Username
-                                            </label>
-                                            <input
-                                                className="form-control form-control-lg"
-                                                type="text"
-                                                value={username}
-                                                onChange={
-                                                    onChangeUsernameHandler
-                                                }
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Password
-                                            </label>
-                                            <input
-                                                className="form-control form-control-lg"
-                                                type="password"
-                                                value={password}
-                                                onChange={
-                                                    onChangePasswordHandler
-                                                }
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Pet Name
-                                            </label>
-                                            <input
-                                                className="form-control form-control-lg"
-                                                type="text"
-                                                value={petName}
-                                                onChange={
-                                                    onChangePetNamehandler
-                                                }
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Choose profile picture
-                                            </label>
-                                            <input
-                                                className="form-control form-control-lg"
-                                                id="profile-picture"
-                                                type="file"
-                                                value={profilePicture}
-                                                onChange={
-                                                    onChangeProfilePictureHandler
-                                                }
-                                            />
-                                        </div>
-                                        <div className="form-outline mb-1">
-                                            <label className="form-label">
-                                                Select pet type
-                                            </label>
-                                            <select
-                                                className="form-control form-control-lg"
-                                                value={petType}
-                                                onChange={
-                                                    onChangePetTypeHandler
-                                                }
-                                                required
-                                            >
-                                                <option>
-                                                    -- Pet types --
-                                                </option>
-                                                {petTypeValues.map((item) => {
-                                                    return (
-                                                        <option>     
-                                                            {item.name}
-                                                        </option>
-                                                    );
-                                                })}
-                                            </select>
-                                        </div>
-                                        <div className="d-flex justify-content-center mt-3">
-                                            <button
-                                                type="submit"
-                                                className="btn btn-success center"
-                                            >                                       
-                                                Create pet account                                          
-                                            </button>
-                                        </div>
-                                        <div className="form-outline mb-0 mt-2 text-center ">
-                                            Already have an account?
-                                            <Link to="/"> Login </Link>
-                                        </div>
-                                    </form>
+        // <section className="vh-100 mt-2">
+        //     <div className="mask d-flex align-items-center  gradient-custom-3">
+        //         <div className="container  h-75">
+        //             <div className="row d-flex justify-content-center align-items-center ">
+        //                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+        //                     <div
+        //                         className="card"
+        //                         style={{ "border-radius": "15px" }}
+        //                     >
+        //                         <div className="card-body p-5 shadow-lg ">
+        //                             <h2 className="text-uppercase text-center mb-3">
+        //                                 Create an account
+        //                             </h2>
+        //                             <form onSubmit={onSubmitFormHandler}>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Name
+        //                                     </label>
+        //                                     <input
+        //                                         className="form-control form-control-lg"
+        //                                         type="text"
+        //                                         value={name}
+        //                                         onChange={onChangeNameHandler}
+        //                                         required
+        //                                     />
+        //                                 </div>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Username
+        //                                     </label>
+        //                                     <input
+        //                                         className="form-control form-control-lg"
+        //                                         type="text"
+        //                                         value={username}
+        //                                         onChange={
+        //                                             onChangeUsernameHandler
+        //                                         }
+        //                                         required
+        //                                     />
+        //                                 </div>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Password
+        //                                     </label>
+        //                                     <input
+        //                                         className="form-control form-control-lg"
+        //                                         type="password"
+        //                                         value={password}
+        //                                         onChange={
+        //                                             onChangePasswordHandler
+        //                                         }
+        //                                         required
+        //                                     />
+        //                                 </div>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Pet Name
+        //                                     </label>
+        //                                     <input
+        //                                         className="form-control form-control-lg"
+        //                                         type="text"
+        //                                         value={petName}
+        //                                         onChange={
+        //                                             onChangePetNamehandler
+        //                                         }
+        //                                         required
+        //                                     />
+        //                                 </div>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Choose profile picture
+        //                                     </label>
+        //                                     <input
+        //                                         className="form-control form-control-lg"
+        //                                         id="profile-picture"
+        //                                         type="file"
+        //                                         value={profilePicture}
+        //                                         onChange={
+        //                                             onChangeProfilePictureHandler
+        //                                         }
+        //                                     />
+        //                                 </div>
+        //                                 <div className="form-outline mb-1">
+        //                                     <label className="form-label">
+        //                                         Select pet type
+        //                                     </label>
+        //                                     <select
+        //                                         className="form-control form-control-lg"
+        //                                         value={petType}
+        //                                         onChange={
+        //                                             onChangePetTypeHandler
+        //                                         }
+        //                                         required
+        //                                     >
+        //                                         <option>
+        //                                             -- Pet types --
+        //                                         </option>
+        //                                         {petTypeValues.map((item) => {
+        //                                             return (
+        //                                                 <option>
+        //                                                     {item.name}
+        //                                                 </option>
+        //                                             );
+        //                                         })}
+        //                                     </select>
+        //                                 </div>
+        //                                 <div className="d-flex justify-content-center mt-3">
+        //                                     <button
+        //                                         type="submit"
+        //                                         className="btn btn-success center"
+        //                                     >
+        //                                         Create pet account
+        //                                     </button>
+        //                                 </div>
+        //                                 <div className="form-outline mb-0 mt-2 text-center ">
+        //                                     Already have an account?
+        //                                     <Link to="/"> Login </Link>
+        //                                 </div>
+        //                             </form>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </section>
+
+        <section className="vh-100">
+            <div className="container h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col col-xl-10">
+                        <div className="card">
+                            <div className="row g-0">
+
+                                <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                                    <div className="card-body p-4 p-lg-5 text-black">
+
+                                        <form onSubmit={onSubmitFormHandler}>
+
+                                            <div className="d-flex align-items-center mb-3 pb-1">
+                                                <img className="me-3" src={'./'} />
+                                            </div>
+
+                                            <span className="h2 fw-bold mb-0">Create your pet's account</span>
+
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Name
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-lg"
+                                                    type="text"
+                                                    value={name}
+                                                    onChange={onChangeNameHandler}
+                                                    required />
+                                            </div>
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Username
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-lg"
+                                                    type="text"
+                                                    value={username}
+                                                    onChange={onChangeUsernameHandler}
+                                                    required />
+                                            </div>
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Password
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-lg"
+                                                    type="password"
+                                                    value={password}
+                                                    onChange={onChangePasswordHandler}
+                                                    required />
+                                            </div>
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Pet Name
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-lg"
+                                                    type="text"
+                                                    value={petName}
+                                                    onChange={onChangePetNamehandler}
+                                                    required />
+                                            </div>
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Choose profile picture
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-lg"
+                                                    id="profile-picture"
+                                                    type="file"
+                                                    value={profilePicture}
+                                                    onChange={onChangeProfilePictureHandler} />
+                                            </div>
+                                            <div className="form-outline mb-1">
+                                                <label className="form-label">
+                                                    Select pet type
+                                                </label>
+                                                <select
+                                                    className="form-control form-control-lg"
+                                                    value={petType}
+                                                    onChange={onChangePetTypeHandler} 
+                                                    required>
+                                                    <option>
+                                                        -- Pet types --
+                                                    </option>
+                                                    {petTypeValues.map((item) => {
+                                                        return (
+                                                            <option>
+                                                                {item.name}
+                                                            </option>
+                                                        );
+                                                    })}
+                                                </select>
+                                            </div>
+                                            <div className="d-flex justify-content-center mt-3">
+                                                <button type="submit" className="btn btn-success center">
+                                                    Create pet account
+                                                </button>
+                                            </div>
+
+                                            <div className="form-outline mb-0 mt-2 text-center ">
+                                                Already have an account?
+                                                <Link to="/"> Login </Link>
+                                            </div>
+                                            <a href="#!" className="small text-muted">Terms of use.</a>
+                                            <a href="#!" className="small text-muted"> Privacy policy</a>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div className="col-md-6 col-lg-5 d-none d-md-block">
+                                    <img src={require("../images/register.png")} alt="login form"
+                                        className="img-fluid" />
                                 </div>
                             </div>
                         </div>
@@ -210,6 +333,8 @@ const RegisterPage = () => {
                 </div>
             </div>
         </section>
+
+
     );
 };
 
