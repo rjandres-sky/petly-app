@@ -1,13 +1,10 @@
 import { IconContext } from 'react-icons'
+import '../../images/PetLy-logo.png'
 
 import { Link } from 'react-router-dom'
-
 import React, { useState } from 'react'
 
-/* only pure CSS was used here, no bootstrap */
 import  SidebarData from './SidebarData'
-import * as MdIcons from 'react-icons/md'
-
 import './Navbar.css'
 
 const Navbar = () => {
@@ -19,7 +16,10 @@ const Navbar = () => {
         <IconContext.Provider value={{color: 'black'}}>
             <nav className="nav-menu ">
                 {/* Website logo and name */}
-                < h1 className='petly-name' >  <MdIcons.MdPets/> PETLY </h1>
+                <div className='petly-title'>
+                    <h1 > Petly </h1>  
+                    <img className='logo' src={require("../../images/PetLy-logo.png")}/>
+                </div>
                 {/* nav-menu */}
                 <ul className='nav-menu-items' onClick={showSidebar}>
                     {SidebarData.map ((item, index) => {
