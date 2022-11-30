@@ -121,7 +121,7 @@ const LoginPage = ({ handleUser }) => {
         // </section>
         <section 
         className="vh-100">
-            <div className="container py-5 h-100">
+            <div className="container h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10">
                         <div 
@@ -142,8 +142,8 @@ const LoginPage = ({ handleUser }) => {
                                         <form onSubmit={(e) => e.preventDefault()}>
 
                                             <div className="welcome align-items-center mb-3 pb-1">
-                                                <span className="h1 fw-bold mb-0">Welcome back to PetLy</span> <br></br>
-                                                <p>Update your pet's social account today!</p>
+                                                <p className="h2 fw-bold text-center">Welcome back to PetLy</p>
+                                                <p className="text-center">Update your pet's social account today!</p>
                                             </div>
 
                                             <h5 

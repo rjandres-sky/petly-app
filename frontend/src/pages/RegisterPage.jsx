@@ -63,17 +63,18 @@ const RegisterPage = () => {
                 pet_name: petName,
             },
         });
+        alert('registered successfuly')
         setName("");
         setUsername("");
         setPassword("");
         setProfilePicture("");
         setPetType("");
         setPetName("");
-        navigate("/get-started");
+        navigate("/login");
     };
 
     return (
-        <section className="h-75 mt-2">
+        <section className="vh-100 mt-2">
             <div className="mask d-flex align-items-center  gradient-custom-3">
                 <div className="container  h-75">
                     <div className="row d-flex justify-content-center align-items-center ">
@@ -96,6 +97,7 @@ const RegisterPage = () => {
                                                 type="text"
                                                 value={name}
                                                 onChange={onChangeNameHandler}
+                                                required
                                             />
                                         </div>
                                         <div className="form-outline mb-1">
@@ -109,6 +111,7 @@ const RegisterPage = () => {
                                                 onChange={
                                                     onChangeUsernameHandler
                                                 }
+                                                required
                                             />
                                         </div>
                                         <div className="form-outline mb-1">
@@ -122,6 +125,7 @@ const RegisterPage = () => {
                                                 onChange={
                                                     onChangePasswordHandler
                                                 }
+                                                required
                                             />
                                         </div>
                                         <div className="form-outline mb-1">
@@ -135,6 +139,7 @@ const RegisterPage = () => {
                                                 onChange={
                                                     onChangePetNamehandler
                                                 }
+                                                required
                                             />
                                         </div>
                                         <div className="form-outline mb-1">
@@ -161,6 +166,7 @@ const RegisterPage = () => {
                                                 onChange={
                                                     onChangePetTypeHandler
                                                 }
+                                                required
                                             >
                                                 <option>
                                                     -- Pet types --

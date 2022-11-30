@@ -10,11 +10,16 @@
     top: 0%;
 }
 
-.petly-name {
-    font-family:  monospace ;
+.petly-title {
+    font-family: monospace ;
     color: blue;
     padding: .5em;
-    margin: .5em;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.logo{
+    height: 8em;
 }
 
 .nav-text{
