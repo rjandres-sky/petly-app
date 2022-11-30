@@ -17,11 +17,13 @@ function PostComponent({ post }) {
             alt={post.pet_id.name}
             src={post.pet_id.profile_picture}
           />
-          <h3>{post.pet_id.name}</h3>
+          <h3>{post.pet_id.name} {post.post_id && ' shared of ' + post.post_id.pet_id.name}</h3>
+
         </div>
         {/* Username + caption */}
         <h4 className="post__text">
           {post.body}
+          {post.post_id && post.post_id.body}
         </h4>
         {/* Image */}
         {/* <img className="post__image" src={imageUrl} alt="" /> */}
