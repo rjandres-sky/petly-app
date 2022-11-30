@@ -42,83 +42,6 @@ const LoginPage = ({ handleUser }) => {
     };
 
     return (
-        // <section className="mt-3" >
-        //     <div className="mask d-flex align-items-center  gradient-custom-3">
-        //         <div className="container  h-75">
-        //             <div className="row d-flex justify-content-center align-items-center ">
-        //                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-        //                     <div
-        //                         className="card"
-        //                         style={{ "border-radius": "15px" }}
-        //                     >
-        //                         <img
-        //                             src={require("../images/PetLy-login-gif.gif")}
-        //                             class="w-100 h-auto img"
-        //                             style={{"border-top-left-radius" : ".3rem", "border-top-right-radius": ".3rem;"}}
-        //                             alt="Sample photo"
-        //                         ></img>
-        //                         <div className="card-body p-5 shadow-lg ">
-        //                             <h2 className="text-uppercase text-center mb-3">
-        //                                 Log in
-        //                             </h2>
-        //                             <form onSubmit={(e) => e.preventDefault()}>
-        //                                 <div className="form-outline mb-1">
-        //                                     <label className="form-label">
-        //                                         Username{" "}
-        //                                     </label>
-        //                                     <input
-        //                                         className="form-control form-control-lg"
-        //                                         type="text"
-        //                                         name="uname"
-        //                                         value={username}
-        //                                         onChange={(e) =>
-        //                                             setUsername(e.target.value)
-        //                                         }
-        //                                         required
-        //                                     />
-        //                                 </div>
-        //                                 <div className="form-outline mb-1">
-        //                                     <label className="form-label">
-        //                                         Password{" "}
-        //                                     </label>
-        //                                     <input
-        //                                         className="form-control form-control-lg"
-        //                                         type="password"
-        //                                         name="pass"
-        //                                         value={password}
-        //                                         onChange={(e) =>
-        //                                             setPassword(e.target.value)
-        //                                         }
-        //                                         required
-        //                                     />
-        //                                 </div>
-        //                                 {errMsg !== "" && (
-        //                                     <div className="error-message">
-        //                                         <small> {errMsg} </small>
-        //                                     </div>
-        //                                 )}
-        //                                 <div className="d-flex justify-content-center mt-3">
-        //                                     <button
-        //                                         type="submit"
-        //                                         onClick={loginEventHandler}
-        //                                         className="btn btn-success center"
-        //                                     >
-        //                                         {" "}
-        //                                         Log in{" "}
-        //                                     </button>
-        //                                 </div>
-        //                                 <div className="form-outline mb-0 mt-2 text-center ">
-        //                                     Don`t have an account? 
-        //                                     <Link to="/register"> Register </Link>
-        //                                 </div>
-        //                             </form>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </section>
         <section 
         className="vh-100">
             <div className="container h-100">
@@ -141,9 +64,9 @@ const LoginPage = ({ handleUser }) => {
 
                                         <form onSubmit={(e) => e.preventDefault()}>
 
-                                            <div className="welcome align-items-center mb-3 pb-1">
-                                                <p className="h2 fw-bold text-center">Welcome back to PetLy</p>
-                                                <p className="text-center">Update your pet's social account today!</p>
+                                            <div className="welcome mb-2 pb-1">
+                                                <p className="h2 fw-bold">Welcome back to PetLy</p>
+                                                <p>Update your pet's social account today!</p>
                                             </div>
 
                                             <h5 
