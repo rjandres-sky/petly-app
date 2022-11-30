@@ -9,7 +9,6 @@ const ReactionsComponent = ({ id, location, reacts }) => {
     const currentUser = useSelector(state => state.Auth)
     const [showSelector, setShowSelector] = useState(false)
 
-    console.log(currentUser)
     const dispatch = new useDispatch()
 
     const handleAdd = () => {

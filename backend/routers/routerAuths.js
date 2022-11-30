@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
         cb(null, uuidv4() + '-' + fileName)
     }
 });
-var upload = multer({
+const upload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
@@ -53,7 +53,7 @@ router.post('/login', (request, response) => {
 });
 
 router.post('/register', upload.single('profile_picture'), async (request, response, next) => {
-    console.log(request.file)
+    const url = req.protocol + '://' + req.get('host')
     await bcrypt.hash(request.body.password, 10)
         .then((hashedPassword) => {
             const pet = new Pets({ ...request.body, password: hashedPassword })
@@ -64,6 +64,20 @@ router.post('/register', upload.single('profile_picture'), async (request, respo
                 .catch(error => response.status(400).send(error))
         })
         .catch(error => response.status(400).send(error))
+
+})
+
+router.put('/:id', upload.single('profile_picture'), async (request, response, next) => {
+            Pets.updateOne({_id : request.params.id},
+                {$set : request.body})
+                .then(result => {
+                    Pets.findOne({ _id: request.params.id })
+                            .select({ password: 0, posts: 0, shared_posts: 0 })
+                            .then(result => {
+                                response.status(200).send(result)
+                            })
+                })
+                .catch(error => response.status(400).send(error))
 
 })
 
