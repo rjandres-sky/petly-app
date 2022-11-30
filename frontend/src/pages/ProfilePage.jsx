@@ -14,6 +14,7 @@ const ProfilePage = () => {
     const [ profilePicture, setProfilePicture ] = useState('')
     const [ username, setUsername ] = useState (currentUser.username)
     const [selectedFile, setSelectedFile] = useState(currentUser.profile_picture)
+    const [date_joined, setDate] = useState(currentUser.date_joined)
 
     const handleProfilePicture = (event) => {
         const file = event.target.files[0]
@@ -44,18 +45,8 @@ const ProfilePage = () => {
     };
 
     return (
-        <section className="profile-page d-flex container-fluid card w-50 mt-5 shadow-lg">
+        <section className="profile-page d-flex container-fluid card w-50 mt-5 p-5 shadow-lg">
             <Navbar/>
-            <div className=" header d-flex justify-content-between ">
-                <button className="btn btn-outline-success m-4" onClick={onSubmitFormHandler}>
-                    Save changes
-                </button>
-                <button className="btn btn-outline-warning m-4" onClick={(e) => {
-                    e.preventDefault()
-                    dispatch({type : 'LOGOUT'}) 
-                }
-                }>Logout</button>
-            </div>
             <p className="text-center h2"> My Pet Profile </p>
             <form className="pet-data ">
                 <div className="profile-pic d-flex align-items-center justify-content-center m-1 p-1 form-outline">
@@ -63,7 +54,7 @@ const ProfilePage = () => {
                         <input type="file" hidden value={profilePicture} onChange={handleProfilePicture}/>
                         <img
                             className="rounded-circle shadow-4-strong h-25 w-25 shadow-lg"
-                            value="!!insert value here"
+                            value={selectedFile}
                             src={selectedFile}
                             alt="profile_picture"
                         />{" "}
@@ -71,36 +62,59 @@ const ProfilePage = () => {
                     </label>
                 </div>
                 <div className="pet-name d-flex justify-content-center m-1 p-1 form-outline">
+                    <label 
+                        className="form-label" 
+                        htmlFor="form2Example17">Name{" "}
+                    </label> <br/>
                     <input
                         className="form-control text-center w-50"
                         type="text"
-                        placeholder="{pet name}"
+                        onChange={(e) =>
+                            setName(e.target.value)
+                        }
+                        defaultValue={name}
                         value={name}
+                        required
                     />
                 </div>
                 <div className="username d-flex align-items-center justify-content-center m-1 p-1 form-outline">
+                    <label 
+                        className="form-label" 
+                        htmlFor="form2Example17">Username{" "}
+                    </label> <br/>
                     <input
                         className="form-control text-center w-50"
                         type="text"
-                        placeholder="{username}"
+                        onChange={(e) =>
+                            setUsername(e.target.value)
+                        }
+                        defaultValue={username}
                         value={username}
                     />
                 </div>
                 <div className="password d-flex align-items-center justify-content-center m-1 p-1 form-outline">
+                <label 
+                        className="form-label" 
+                        htmlFor="form2Example17">Password{" "}
+                    </label> <br/>
                     <input
                         className="form-control text-center w-50"
                         type="password"
                         placeholder="**************"
+                        onChange={(e) =>
+                            setPassword(e.target.value)
+                        }
+                        defaultValue={password}
                         value={password}
                     />
                 </div>
                 <div className="date-created d-flex justify-content-center">
-                    <p> Date created : {currentUser.date_joined} </p>
+                    <p> Date created : {date_joined} </p>
                 </div>
             </form>
             <div className="action-button align-self-center m-2">
-                <button className="btn btn-outline-info m-1">
-                    Change password
+            <button className="btn btn-outline-success m-4" onClick={onSubmitFormHandler}>
+                    Save changes
                 </button>
                 <button className="btn btn-outline-danger m-1">
                     {" "}
