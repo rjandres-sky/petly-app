@@ -1,5 +1,6 @@
 import React from "react";
 import "./PostComponent.css";
+import ReactionsComponent from "./ReactionComponent";
 //import Avatar from "@material-ui/core/Avatar";
 
 function CommentComponent({ comment }) {
@@ -16,8 +17,10 @@ function CommentComponent({ comment }) {
         {comment.body}
       </h4>  
       {/* Image */}
-      {/* <img className="post__image" src={imageUrl} alt="" /> */}  
-    
+      {/* <img className="post__image" src={imageUrl} alt="" /> */} 
+       
+      <ReactionsComponent id= {comment._id} location = {'comment'} reacts = {comment.reacts}/>
+
       <div style={{paddingLeft : '30px'}}>
       {comment.comments && comment.comments.map(comment =>{
         return (
