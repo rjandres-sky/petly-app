@@ -6,7 +6,7 @@ import ReactionsComponent from "./ReactionComponent";
 function CommentComponent({ comment }) {
   return (
     <>
-    <div className="post">
+    <div className="post card-body m-2 p-2 shadow-lg rounded">
       <div className="post__header">
         {/* Header: avatar with username */}
         {/*  */}

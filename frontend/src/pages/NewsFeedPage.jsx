@@ -43,11 +43,9 @@ const NewsFeedPage = () => {
     }, [])
 
     return (
-        <section className='container d-flex justify-content-center m-3'>
+        <section className='container d-flex justify-content-center m-2 p-2 '>
         <Navbar/>
-        <div
-            className=' card'>
-
+        <div className=' '>
             {<div
                 className='pet-type-container'>
                 {
