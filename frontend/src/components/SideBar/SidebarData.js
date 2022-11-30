@@ -18,7 +18,7 @@ const SidebarData = [
     {
         title: 'Switch account',
         path: '/login',
-        icon: <AiIcons.AiOutlineInfoCircle/>,
+        icon: <AiIcons.AiOutlineUserSwitch/>,
         cName: 'nav-text'
     },
     {

@@ -43,7 +43,7 @@ const NewsFeedPage = () => {
     }, [])
 
     return (
-        <section className='container d-flex justify-content-center '>
+        <section className='container d-flex justify-content-center m-3'>
         <Navbar/>
         <div
             className=' card'>

@@ -1,54 +1,45 @@
-.navbar{
-    background-color:  rgba(21, 180, 204, 0.785);
-    display: flex;
-    align-items: center;
-    margin: -0.5rem;
-}
-
-.menu-bars{
-    margin-left: 1em;
-    font-size: 5rem;
-    background: none;
-}
-
 .nav-menu{
     background-color: white;
-    width: 40vh;
+    width: 35vh;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    flex-direction: column;
     position: fixed;
     left: 0%;
     top: 0%;
 }
 
+.petly-name {
+    font-family:  monospace ;
+    color: blue;
+    padding: .5em;
+    margin: .5em;
+}
 
 .nav-text{
     display:flex;
-    justify-content: center;
-    align-content: flex-start;
-    padding: 6px;
     list-style: none;
-    height: 60px;
+    height: 4em;
 }
 
 .nav-text a {
     text-decoration: none;
     color: black;
-    font-size: 1.2em;
+    font-size: 1em;
     width: 95%;
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 1em;
     border-radius: 4px;
 }
 
 .nav-text a:hover {
-    background-color: black;
-    color: white;
+    background-color: gray;
+    color: black;
 }
 
 span{
-    margin-left: 4vh;
+    margin-left: 1em;
 }
