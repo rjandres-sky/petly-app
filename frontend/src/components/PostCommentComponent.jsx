@@ -106,23 +106,24 @@ const PostComment = ({ currentUser, action, location, id}) => {
 
 
     return (
-        <section className="w-50 p-5 m-3 card" >
+        <section className="w-50 p-4 card" >
             <form
                 onSubmit={onSubmitFormHandler}
             >
-
-                <div className="form-outline mb-1">
-                    <input
+                <p className="h5 text-center"> Add new post </p>
+                <div className="form-outline mb-4">
+                    <textarea
                         className="form-control form-control-lg"
                         type="text"
                         value={caption}
+                        placeholder = " Post your pet`s activity ... "
                         onChange={onChangeCaptionHandler}
                         required />
                 </div>
 
-                <div className="form-outline mb-1">
+                <div className="form-outline mb-2 ">
                     <input
-                        className="form-control form-control-lg"
+                        className="form-control form-control-sm w-50 "
                         id="profile-picture"
                         type="file"
                         value={picture}

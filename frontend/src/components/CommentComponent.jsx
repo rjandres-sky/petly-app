@@ -8,10 +8,11 @@ function CommentComponent({ currentUser, comment }) {
   return (
     <>
       <div className="post m-2 p-2 shadow-lg rounded">
+      <p className="text-center h5"> Comments </p>
         <div className="post__header">
           {/* Header: avatar with username */}
           <Avatar
-            className="post__avatar"
+            className="post__avatar "
             alt={comment.name}
             src={comment.pet_id.profile_picture}
           />
