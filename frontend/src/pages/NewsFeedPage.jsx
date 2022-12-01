@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import PostComment from '../components/PostCommentComponent'
 import PostComponent from '../components/PostComponent'
 import Navbar from '../components/SideBar/Navbar'
 import '../styles/NewsFeedPageStyles.css'
@@ -30,80 +31,86 @@ const NewsFeedPage = () => {
 
     const handleFilter = (name) => {
         console.log(name)
-        if(name === 'all-pets'){
+        if (name === 'all-pets') {
             setPosts('')
         } else {
             setPosts(name)
         }
-        
+
     }
 
     useEffect(() => {
         if (currentUser._id === undefined) {
             navigate('/')
         }
+        console.log()
         getAllPost()
 
     }, [])
 
+    console.log(allPost)
+
     return (
         <>
-        <Navbar />
-        <section className='newsfeed-page container d-flex justify-content-center m-2 p-2 '>
+            <Navbar />
+            <section className='newsfeed-page container d-flex justify-content-center m-2 p-2 '>
 
-            <div className=' '>
-                {<div
-                    className='pet-type-container'>
-                    {
-                        data.map((items) => (
-                            <div
-                                className='pet-type'
-                                key={items.name}>
-                                {/* {console.log('icons', items.icon)} */}
+                <div className=' '>
+                    {<div
+                        className='pet-type-container'>
+                        {
+                            data.map((items) => (
                                 <div
-                                    className='pet-icon'>
-                                    <img key={items.name}
-                                        onClick={() => handleFilter(items.name)}
-                                        src={items.icon}
-                                        alt='' />
+                                    className='pet-type'
+                                    key={items.name}>
+                                    {/* {console.log('icons', items.icon)} */}
+                                    <div
+                                        className='pet-icon'>
+                                        <img key={items.name}
+                                            onClick={() => handleFilter(items.name)}
+                                            src={items.icon}
+                                            alt='' />
+                                    </div>
                                 </div>
-                            </div>
-                        ))
-                    }
-                </div>}
-                <div
-                    className='pet-username-container'>
+                            ))
+                        }
+                    </div>}
                     <div>
+                        <PostComment currentUser = {currentUser} action = {'NEW POST'}/>
                     </div>
-                    <div>
-
-                    </div>
-                </div>
-                <div
-                    className='pet-post-container'>
-                    {allPost.filter(pet => pet.pet_id.pet_type.includes( posts )).map(post => {
-                        return (
-                            <PostComponent post={post} />
-                        )
-                    })}
-                </div>
-                <div
-                    className='pet-reacts-container'>
-
-                </div>
-                <div
-                    className='pet-caption-container'>
                     <div
-                        className='pet-caption-username'>
+                        className='pet-username-container'>
+                        <div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div
+                        className='pet-post-container'>
+                        {allPost.reverse().filter(pet => pet.pet_id.pet_type.includes(posts)).map(post => {
+                            return (
+                                <PostComponent currentUser={currentUser} post={post} />
+                            )
+                        })}
+                    </div>
+                    <div
+                        className='pet-reacts-container'>
 
                     </div>
                     <div
-                        className='pet-caption'>
+                        className='pet-caption-container'>
+                        <div
+                            className='pet-caption-username'>
 
+                        </div>
+                        <div
+                            className='pet-caption'>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </>
     )
 }

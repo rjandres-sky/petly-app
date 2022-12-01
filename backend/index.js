@@ -23,7 +23,8 @@ server.use(bodyParser.json());
 server.use(helmet());
 server.use(bodyParser.urlencoded({
     extended: false}))
-server.use('/uploads', express.static('uploads'));
+server.use('/uploads', express.static("uploads"));
+
 
 mongoose.connect('mongodb+srv://petly_user:dictmerng2@cluster0.dfs2tzl.mongodb.net/petly?retryWrites=true&w=majority', { useNewUrlParser: true });
 

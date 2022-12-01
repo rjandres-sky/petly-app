@@ -1,6 +1,31 @@
 const express = require('express')
 const router = express.Router()
 
+const multer = require('multer')
+const mongoose = require('mongoose')
+const uuidv4 = require('uuid/v4')
+const DIR = './uploads/';
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, uuidv4() + '-' + fileName)
+    }
+});
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    }
+});
+
 const Pets = require('../models/petusers')
 const Posts = require('../models/postmodel')
 
@@ -17,8 +42,16 @@ router.get('/:id', (request, response) => {
     .catch(error => response.status(404).send(error))
 })
 
-router.post('/', async (request, response) => {
-    const post = new Posts(request.body)
+router.post('/', upload.single('img'), async (request, response, next) => {
+const newPost = {
+    pet_id : request.body.pet_id,
+    body : {
+        caption : request.body.caption,
+        img : request.body.img
+    }
+}
+
+    const post = new Posts(newPost)
     await post.save()
     .then(result => {
         Pets.updateOne(
@@ -31,7 +64,7 @@ router.post('/', async (request, response) => {
     .catch(error => response.status(400).send(error))
 })
 
-router.put('/:id', (request, response) => {
+router.put('/:id', (request, response, next) => {
     Posts.updateOne(
         { _id: request.params.id },
         { $set: request.body })
