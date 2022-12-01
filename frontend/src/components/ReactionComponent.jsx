@@ -4,6 +4,8 @@ import { useState } from 'react'
 import _ from 'lodash'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
 
 const ReactionsComponent = ({ id, location, reacts }) => {
     const currentUser = useSelector(state => state.Auth)
@@ -58,7 +60,6 @@ const ReactionsComponent = ({ id, location, reacts }) => {
             }
         }
 
-
         if (index === -1) {
             axios.post('http://localhost:8080/reacts/'+ location, body)
                 .then(() => {
@@ -86,16 +87,19 @@ const ReactionsComponent = ({ id, location, reacts }) => {
     return (
         <>
             {
-                counter.length !== 0 &&
+                counter.length !== 0 ?
                 <PokemonCounter
                 counters={counter}
                 user={currentUser.name}
                 onClick={handleAdd}
                 bg="#fafafa"
                 important={counter.length !== 0 ? reacts.filter(react => react.pet_id.name !== currentUser.name).map(react => react.pet_id.name) : []}
-            /> 
+            /> : 
+            
+             <AddReactionIcon 
+             style={{cursor: "pointer"}}
+             onClick = {handleAdd} />
         }
-
             {
                 showSelector &&
                 <div style={{ position: 'absolute' }}>
