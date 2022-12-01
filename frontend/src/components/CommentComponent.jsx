@@ -19,10 +19,11 @@ function CommentComponent({ currentUser, comment }) {
         </div>
         {/* Username + caption */}
         <h4 className="post__text">
-          {comment.body}
+          {comment.body.caption}
+
         </h4>
         {/* Image */}
-      {/* <img className="post__image" src={imageUrl} alt="" /> */}
+      {comment.body.img === "" && <img className="post__image" src={comment.body.img} alt="" />}
 
         <ReactionsComponent id={comment._id} location={'comment'} reacts={comment.reacts} />
         <PostComment id={comment._id} currentUser={currentUser} action={"comment"} location={'comment'}/>
