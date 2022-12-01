@@ -1,9 +1,11 @@
 import React from "react";
 import CommentComponent from "./CommentComponent";
-import "./PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
 import Avatar from "@mui/material/Avatar";
 import PostComment from "./PostCommentComponent";
+import Buttons from './Buttons';
+import '../styles/PostComponent.css';
+
 
 function PostComponent({ currentUser, post }) {
 
@@ -41,7 +43,7 @@ function PostComponent({ currentUser, post }) {
             return (<CommentComponent currentUser={currentUser} key={comment._id} comment={comment} />)
           })}
         </div>
-
+<Buttons />
       </div>
 
     </>

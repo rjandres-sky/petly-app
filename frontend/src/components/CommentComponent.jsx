@@ -1,5 +1,5 @@
 import React from "react";
-import "./PostComponent.css";
+import "../styles/PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
 import Avatar from "@mui/material/Avatar";
 import PostComment from "./PostCommentComponent";

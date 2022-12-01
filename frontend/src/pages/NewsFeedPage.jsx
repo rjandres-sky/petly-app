@@ -7,6 +7,7 @@ import PostComment from '../components/PostCommentComponent'
 import PostComponent from '../components/PostComponent'
 import Navbar from '../components/SideBar/Navbar'
 import '../styles/NewsFeedPageStyles.css'
+import Buttons from '../components/Buttons'
 
 
 const NewsFeedPage = () => {
@@ -91,24 +92,11 @@ const NewsFeedPage = () => {
                         {allPost.reverse().filter(pet => pet.pet_id.pet_type.includes(posts)).map(post => {
                             return (
                                 <PostComponent currentUser={currentUser} post={post} />
+                                // <Buttons />
                             )
                         })}
                     </div>
-                    <div
-                        className='pet-reacts-container'>
-
-                    </div>
-                    <div
-                        className='pet-caption-container'>
-                        <div
-                            className='pet-caption-username'>
-
-                        </div>
-                        <div
-                            className='pet-caption'>
-
-                        </div>
-                    </div>
+                   
                 </div>
             </section>
         </>

@@ -7,7 +7,7 @@
     height: auto;
 }
 
-.btn-success {
+button.btn-success {
     background: #184B46;
     --bs-btn-border-color: #184B46;
     --bs-btn-hover-color: #fff;
