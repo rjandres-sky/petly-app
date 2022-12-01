@@ -38,7 +38,9 @@ const LoginPage = ({ handleUser }) => {
                     setErrMsg("Username and Password not found");
                 }
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                setErrMsg("Username and Password not found");
+                });
     };
 
     return (
@@ -103,12 +105,9 @@ const LoginPage = ({ handleUser }) => {
                                                 <label 
                                                 className="form-label" 
                                                 htmlFor="form2Example27">Password</label>
+                                                <p style={{color: "red"}}>{errMsg}</p>
                                             </div>
-                                            {errMsg !== "" && (
-                                                <div className="error-message">
-                                                    <small> {errMsg} </small>
-                                                </div>
-                                            )}
+                                            
 
                                             <div className="pt-1 mb-4">
                                                 <button 
