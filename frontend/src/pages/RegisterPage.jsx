@@ -80,7 +80,7 @@ const RegisterPage = () => {
                 setProfilePicture("");
                 setPetType("");
                 setPetName("");
-                navigate("/login");
+                navigate("/");
             });
 
     };
