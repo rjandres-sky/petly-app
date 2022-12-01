@@ -12,7 +12,8 @@ function PostComponent({ currentUser, post }) {
   console.log(post.post_id)
   return (
     <>
-      <div className="post card-body w-50 m-3 p-3 shadow-lg rounded">
+      <div className="post card-body w-50 mt-3 p-4 shadow-lg rounded">
+        <p className="text-center h4"> Posts </p>
         <div className="post__header">
           {/* Header: avatar with username */}
           <Avatar
