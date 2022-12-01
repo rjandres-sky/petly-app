@@ -82,8 +82,6 @@ const NewsFeedPage = () => {
                     <div
                         className='pet-username-container'>
                         <div>
-                        </div>
-                        <div>
 
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaPaw, FaComment, FaShareSquare } from "react-icons/fa";
+import '../styles/ButtonsStyles.css';
 
 const Buttons = () => {
     return (
