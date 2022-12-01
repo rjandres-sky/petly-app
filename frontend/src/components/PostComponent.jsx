@@ -3,8 +3,9 @@ import CommentComponent from "./CommentComponent";
 import "./PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
 import Avatar from "@mui/material/Avatar";
+import PostComment from "./PostCommentComponent";
 
-function PostComponent({ post }) {
+function PostComponent({ currentUser, post }) {
 
   console.log(post.post_id)
   return (
@@ -22,18 +23,22 @@ function PostComponent({ post }) {
         </div>
         {/* Username + caption */}
         <h4 className="post__text">
-          {post.body}
-          {post.post_id && post.post_id.body}
+          { }
+          {post.post_id ? post.post_id.body.caption : post.body.caption}
         </h4>
         {/* Image */}
-        {/* <img className="post__image" src={imageUrl} alt="" /> */}
+        {post.post_id ?
+          (post.post_id.body.img !== "" && <img className="post__image" src={post.post_id.body.img} alt="" />)
+          :
+          (post.body.img !== "" && <img className="post__image" src={post.body.img} alt="" />)
+        }
 
         <ReactionsComponent id={post._id} location={post.post_id === undefined ? 'post' : 'shared'} reacts={post.reacts} />
-
+        <PostComment id={post._id} currentUser={currentUser} action="comment" location={post.post_id === undefined ? 'post' : 'shared'} />
         <div style={{ paddingLeft: '30px', paddingRight: '5px' }}>
           {post.comments && post.comments.map(comment => {
 
-            return (<CommentComponent key={comment._id} comment={comment} />)
+            return (<CommentComponent currentUser={currentUser} key={comment._id} comment={comment} />)
           })}
         </div>
 

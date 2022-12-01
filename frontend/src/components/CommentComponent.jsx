@@ -2,39 +2,40 @@ import React from "react";
 import "./PostComponent.css";
 import ReactionsComponent from "./ReactionComponent";
 import Avatar from "@mui/material/Avatar";
+import PostComment from "./PostCommentComponent";
 
-function CommentComponent({ comment }) {
+function CommentComponent({ currentUser, comment }) {
   return (
     <>
-    <div className="post card-body m-2 p-2 shadow-lg rounded">
-      <div className="post__header">
-        {/* Header: avatar with username */}
-        <Avatar
-          className="post__avatar"
-          alt={comment.pet_id.name}
-          src={comment.pet_id.profile_picture}
-        />
-        <h3>{comment.pet_id.name}</h3>
-      </div>
-      {/* Username + caption */}
-      <h4 className="post__text">
-        {comment.body}
-      </h4>  
-      {/* Image */}
-      {/* <img className="post__image" src={imageUrl} alt="" /> */} 
-       
-      <ReactionsComponent id= {comment._id} location = {'comment'} reacts = {comment.reacts}/>
+      <div className="post card-body m-2 p-2 shadow-lg rounded">
+        <div className="post__header">
+          {/* Header: avatar with username */}
+          <Avatar
+            className="post__avatar"
+            alt={comment.name}
+            src={comment.pet_id.profile_picture}
+          />
+          <h3>{comment.pet_id.name}</h3>
+        </div>
+        {/* Username + caption */}
+        <h4 className="post__text">
+          {comment.body}
+        </h4>
+        {/* Image */}
+      {/* <img className="post__image" src={imageUrl} alt="" /> */}
 
-      <div style={{paddingLeft : '30px'}}>
-      {comment.comments && comment.comments.map(comment =>{
-        return (
-        <CommentComponent key={comment._id} comment = {comment}/>
-        )
-    })}
-    </div>
-    </div>
-  
-    
+        <ReactionsComponent id={comment._id} location={'comment'} reacts={comment.reacts} />
+        <PostComment id={comment._id} currentUser={currentUser} action={"comment"} location={'comment'}/>
+      <div style={{ paddingLeft: '30px' }}>
+          {comment.comments && comment.comments.map(comment => {
+            return (
+              <CommentComponent key={comment._id} comment={comment} />
+            )
+          })}
+        </div>
+      </div>
+
+
 
     </>
   );

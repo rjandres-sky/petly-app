@@ -8,58 +8,85 @@ const Comments = require('../models/commentmodel')
 
 router.get('/', (request, response) => {
     Comments.find()
-    .populate({path : 'pet_id', select : 'name'})
-    .then(result => response.status(200).send(result))
-    .catch(error => response.status(404).send(error))
+        .populate({ path: 'pet_id', select: 'name' })
+        .then(result => response.status(200).send(result))
+        .catch(error => response.status(404).send(error))
 })
 
 router.get('/:id', (request, response) => {
-    Comments.findOne({_id : request.params.id})
-    .then(result => response.status(200).send(result))
-    .catch(error => response.status(404).send(error))
+    Comments.findOne({ _id: request.params.id })
+        .then(result => response.status(200).send(result))
+        .catch(error => response.status(404).send(error))
 })
 
 //==================adding comment========================
-router.post('/post', async (request, response) => {
-    const comment = new Comments(request.body)
+router.post('/post', async (request, response, next) => {
+    console.log(request.body)
+    const newComment = {
+        pet_id: request.body.pet_id,
+        body: {
+            caption: request.body.caption,
+            img: request.body.img
+        }
+    }
+    console.log(newComment)
+    const comment = new Comments(newComment)
     await comment.save()
-    .then(result => {
-        Posts.updateOne(
-            {_id : request.body.post_id},
-            {$push : {comments : result._id.toString()}}
+        .then(result => {
+            Posts.updateOne(
+                { _id: request.body.post_id },
+                { $push: { comments: result._id.toString() } }
             )
-            .then(() => response.status(204).send(comment))
-            .catch(err => response.status(400).send(err))
-    })
-    .catch(error => response.status(400).send(error))
+                .then(() => response.status(204).send(comment))
+                .catch(err => response.status(400).send(err))
+        })
+        .catch(error => response.status(400).send(error))
 })
 
-router.post('/shared', async (request, response) => {
-    const comment = new Comments(request.body)
+router.post('/shared', async (request, response, next) => {
+    console.log(request.body)
+    const newComment = {
+        pet_id: request.body.pet_id,
+        body: {
+            caption: request.body.caption,
+            img: request.body.img
+        }
+    }
+    console.log(newComment)
+    const comment = new Comments(newComment)
     await comment.save()
-    .then(result => {
-        SharedPosts.updateOne(
-            {_id : request.body.shared_id},
-            {$push : {comments : result._id.toString()}}
+        .then(result => {
+            SharedPosts.updateOne(
+                { _id: request.body.shared_id },
+                { $push: { comments: result._id.toString() } }
             )
-            .then(() => response.status(204).send(comment))
-            .catch(err => response.status(400).send(err))
-    })
-    .catch(error => response.status(400).send(error))
+                .then(() => response.status(204).send(comment))
+                .catch(err => response.status(400).send(err))
+        })
+        .catch(error => response.status(400).send(error))
 })
 
-router.post('/comment', async (request, response) => {
-    const comment = new Comments(request.body)
+router.post('/comment', async (request, response, next) => {
+    console.log(request.body)
+    const newComment = {
+        pet_id: request.body.pet_id,
+        body: {
+            caption: request.body.caption,
+            img: request.body.img
+        }
+    }
+    console.log(newComment)
+    const comment = new Comments(newComment)
     await comment.save()
-    .then(result => {
-        Comments.updateOne(
-            {_id : request.body.comment_id},
-            {$push : {comments : result._id.toString()}}
+        .then(result => {
+            Comments.updateOne(
+                { _id: request.body.comment_id },
+                { $push: { comments: result._id.toString() } }
             )
-            .then(() => response.status(204).send(comment))
-            .catch(err => response.status(400).send(err))
-    })
-    .catch(error => response.status(400).send(error))
+                .then(() => response.status(204).send(comment))
+                .catch(err => response.status(400).send(err))
+        })
+        .catch(error => response.status(400).send(error))
 })
 //==================adding comment========================
 
@@ -81,9 +108,9 @@ router.delete('/:id/post', (request, response) => {
         .then(result => {
             if (result.deletedCount === 1) {
                 Posts.updateOne(
-                    {_id : request.body.pet_id},
-                    {$pull : {comments : request.params.id}}
-                    )
+                    { _id: request.body.pet_id },
+                    { $pull: { comments: request.params.id } }
+                )
                     .then(() => response.status(204).send(result))
             }
         })
@@ -95,9 +122,9 @@ router.delete('/:id/shared', (request, response) => {
         .then(result => {
             if (result.deletedCount === 1) {
                 SharedPosts.updateOne(
-                    {_id : request.body.pet_id},
-                    {$pull : {comments : request.params.id}}
-                    )
+                    { _id: request.body.pet_id },
+                    { $pull: { comments: request.params.id } }
+                )
                     .then(() => response.status(204).send(result))
             }
         })
@@ -109,9 +136,9 @@ router.delete('/:id/comment', (request, response) => {
         .then(result => {
             if (result.deletedCount === 1) {
                 Comments.updateOne(
-                    {_id : request.body.pet_id},
-                    {$pull : {comments : request.params.id}}
-                    )
+                    { _id: request.body.pet_id },
+                    { $pull: { comments: request.params.id } }
+                )
                     .then(() => response.status(204).send(result))
             }
         })
