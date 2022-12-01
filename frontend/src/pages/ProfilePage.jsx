@@ -15,6 +15,10 @@ const ProfilePage = () => {
     const [username, setUsername] = useState(currentUser.username);
     const [selectedFile, setSelectedFile] = useState(currentUser.profile_picture);
     const [date_joined, setDateJoined] = useState(currentUser.date_joined);
+    const [retypePassword, setRetypePassword] = useState("");
+    const [currentPassword, setCurrentPassword] = useState("");
+    
+    const [errorMsg, setErrorMsg] = useState('')
 
     const handleProfilePicture = (event) => {
         const file = event.target.files[0];
@@ -45,6 +49,34 @@ const ProfilePage = () => {
             });
     };
 
+    const onSavePasswordHandler = (e) => {
+        e.preventDefault()
+        if (password === "") {
+            setErrorMsg('Password is required')
+        } else {
+            if (retypePassword === password) {
+                axios
+                    .put("http://localhost:8080/auth/" + currentUser._id + '/change', {
+                        currentpassword : currentPassword,
+                        newpassword: password
+                    })
+                    .then((result) => {
+                        alert("password successfuly");
+                        setCurrentPassword('')
+                        setPassword('')
+                        setRetypePassword('')
+                        setErrorMsg('')
+                    })
+                    .catch(setErrorMsg('Password not matched'))
+
+            } else {
+                setErrorMsg('Password not matched')
+            }
+        }
+
+
+    }
+
     return (
         <section className="profile-page d-flex container-fluid card w-50 mt-5 p-5 shadow-lg">
             <Navbar />
@@ -73,12 +105,12 @@ const ProfilePage = () => {
                     </label>
                     <div className="col-sm-9">
                         <input
-                        className="form-control text-center w-100 "
-                        type="text"
-                        onChange={(e) => setName(e.target.value)}
-                        defaultValue={name}
-                        value={name}
-                        required
+                            className="form-control text-center w-100 "
+                            type="text"
+                            onChange={(e) => setName(e.target.value)}
+                            defaultValue={name}
+                            value={name}
+                            required
                         />
                     </div>
                 </div>
@@ -89,34 +121,74 @@ const ProfilePage = () => {
                     </label>
                     <div className="col-sm-9">
                         <input
-                        className="form-control text-center w-100"
-                        type="text"
-                        onChange={(e) => setUsername(e.target.value)}
-                        defaultValue={username}
-                        value={username}
+                            className="form-control text-center w-100"
+                            type="text"
+                            onChange={(e) => setUsername(e.target.value)}
+                            defaultValue={username}
+                            value={username}
                         />
                     </div>
                 </div>
 
                 <div className="mb-3 row ">
+                <label className="col-sm-3 col-form-label">
+                        Current Password
+                    </label>
+                    <div className="col-sm-9">
+                        <input
+                            className="form-control text-center w-100"
+                            type="password"
+                            placeholder="***************"
+                            onChange={(e) => setCurrentPassword(e.target.value)}
+                            defaultValue={currentPassword}
+                            value={currentPassword}
+                        />
+
+                    </div>
+
                     <label className="col-sm-3 col-form-label">
                         Password
                     </label>
                     <div className="col-sm-9">
                         <input
-                        className="form-control text-center w-100"
-                        type="password"
-                        placeholder="***************"
-                        onChange={(e) => setPassword(e.target.value)}
-                        defaultValue={password}
-                        value={password}
+                            className="form-control text-center w-100"
+                            type="password"
+                            placeholder="***************"
+                            onChange={(e) => setPassword(e.target.value)}
+                            defaultValue={password}
+                            value={password}
                         />
+
                     </div>
+                    <label className="col-sm-3 col-form-label">
+                        Retype Password
+                    </label>
+                    <div className="col-sm-9">
+                        <input
+                            className="form-control text-center w-100"
+                            type="password"
+                            placeholder="***************"
+                            onChange={(e) => setRetypePassword(e.target.value)}
+                            defaultValue={retypePassword}
+                            value={retypePassword}
+                        />
+                        <p style={{ color: "red" }}>{errorMsg}</p>
+                        <div className="action-button align-self-center m-2">
+                            <button
+                                className="btn btn-outline-success m-4"
+                                onClick={onSavePasswordHandler}
+                            >
+                                Change Password
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <div className="mb-3 row">
                     <label className="col-sm-3 col-form-label">
-                    Date created: 
+                        Date created:
                     </label>
                     <div className="col-sm-9">
                         <p className="form-control w-100"> 11/30/22 {currentUser.date_joined}</p>

@@ -33,10 +33,13 @@ const RegisterPage = () => {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [retypePassword, setRetypePassword] = useState("");
     const [profilePicture, setProfilePicture] = useState("");
     const [petType, setPetType] = useState("");
     const [petName, setPetName] = useState("");
     const [selectedFile, setSelectedFile] = useState('')
+
+    const [errorMsg, setErrorMsg] =useState('')
 
     const onChangeNameHandler = (event) => {
         setName(event.target.value);
@@ -47,6 +50,10 @@ const RegisterPage = () => {
     const onChangePasswordHandler = (event) => {
         setPassword(event.target.value);
     };
+    const onChangeRetypePasswordHandler = (event) => {
+        setRetypePassword(event.target.value);
+    };
+
     const onChangeProfilePictureHandler = (event) => {
         const file = event.target.files[0]
         let reader = new FileReader();
@@ -66,6 +73,7 @@ const RegisterPage = () => {
 
     const onSubmitFormHandler = (event) => {
         event.preventDefault();
+        if(password === retypePassword) {
         const formData = new FormData();
         formData.append('name', name)
         formData.append('username', username)
@@ -83,9 +91,12 @@ const RegisterPage = () => {
                 setProfilePicture("");
                 setPetType("");
                 setPetName("");
+                setErrorMsg("")
                 navigate("/login");
             });
-
+        } else {
+            setErrorMsg('Password not match')
+        }
     };
 
     return (
@@ -136,6 +147,16 @@ const RegisterPage = () => {
                                                     value={password}
                                                     onChange={onChangePasswordHandler}
                                                     required />
+                                                    <label className="form-label">
+                                                    Retype Password
+                                                </label>
+                                                <input
+                                                    className="form-control form-control-md"
+                                                    type="password"
+                                                    value={retypePassword}
+                                                    onChange={onChangeRetypePasswordHandler}
+                                                    required />
+                                                    <p style={{color: "red"}}>{errorMsg}</p>
                                             </div>
                                             {/* <div className="form-outline mb-4">
                                                 <label className="form-label">
