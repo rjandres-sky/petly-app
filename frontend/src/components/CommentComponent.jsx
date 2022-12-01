@@ -4,10 +4,12 @@ import ReactionsComponent from "./ReactionComponent";
 import Avatar from "@mui/material/Avatar";
 import PostComment from "./PostCommentComponent";
 
+import '../styles/CommentComponentStyles.css'
+
 function CommentComponent({ currentUser, comment }) {
   return (
     <>
-      <div className="post m-2 p-2 shadow-lg rounded">
+      <div className="post m-2 p-3 shadow-lg rounded">
       <p className="text-center h5"> Comments </p>
         <div className="post__header">
           {/* Header: avatar with username */}
@@ -28,7 +30,7 @@ function CommentComponent({ currentUser, comment }) {
 
         <ReactionsComponent id={comment._id} location={'comment'} reacts={comment.reacts} />
         <PostComment id={comment._id} currentUser={currentUser} action={"comment"} location={'comment'}/>
-      <div style={{ paddingLeft: '30px' }}>
+      <div style={{ paddingLeft: '10px' }}>
           {comment.comments && comment.comments.map(comment => {
             return (
               <CommentComponent key={comment._id} comment={comment} />

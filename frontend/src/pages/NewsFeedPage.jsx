@@ -58,7 +58,7 @@ const NewsFeedPage = () => {
             <Navbar/>
                 <div className='feed'>
                     {<div
-                        className='pet-type-container w-50 p-5 m-3'>
+                        className='pet-type-container w-50 mt-3 my-3'>
                         {
                             data.map((items) => (
                                 <div

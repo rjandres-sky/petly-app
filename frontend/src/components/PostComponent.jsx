@@ -5,6 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import PostComment from "./PostCommentComponent";
 import Buttons from './Buttons';
 import '../styles/PostComponent.css';
+import { FaPaw, FaComment, FaShareSquare } from "react-icons/fa";
 
 
 function PostComponent({ currentUser, post }) {
@@ -35,8 +36,7 @@ function PostComponent({ currentUser, post }) {
           :
           (post.body.img !== "" && <img className="post__image" src={post.body.img} alt="" />)
         }
-
-        <ReactionsComponent id={post._id} location={post.post_id === undefined ? 'post' : 'shared'} reacts={post.reacts} />
+          <ReactionsComponent id={post._id} location={post.post_id === undefined ? 'post' : 'shared'} reacts={post.reacts} />
           <Buttons />
         <PostComment id={post._id} currentUser={currentUser} action="comment" location={post.post_id === undefined ? 'post' : 'shared'} />
         <div style={{ paddingLeft: '30px', paddingRight: '5px' }}>
