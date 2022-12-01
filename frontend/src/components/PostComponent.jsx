@@ -36,6 +36,7 @@ function PostComponent({ currentUser, post }) {
         }
 
         <ReactionsComponent id={post._id} location={post.post_id === undefined ? 'post' : 'shared'} reacts={post.reacts} />
+          <Buttons />
         <PostComment id={post._id} currentUser={currentUser} action="comment" location={post.post_id === undefined ? 'post' : 'shared'} />
         <div style={{ paddingLeft: '30px', paddingRight: '5px' }}>
           {post.comments && post.comments.map(comment => {
@@ -43,7 +44,6 @@ function PostComponent({ currentUser, post }) {
             return (<CommentComponent currentUser={currentUser} key={comment._id} comment={comment} />)
           })}
         </div>
-<Buttons />
       </div>
 
     </>

@@ -6,17 +6,17 @@ const Buttons = () => {
     return (
         <div className='buttons-container'>
             <div className='button-react'>
-                <button>
+                <button className='fapaw'>
                     <FaPaw />
                 </button>
             </div>
             <div className='button-comment'>
-                <button>
+                <button className='facomment'>
                     <FaComment />
                 </button>
             </div>
             <div className='button-share'>
-                <button>
+                <button className='fashare'>
                     <FaShareSquare />
                 </button>
             </div>

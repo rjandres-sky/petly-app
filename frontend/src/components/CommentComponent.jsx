@@ -7,7 +7,7 @@ import PostComment from "./PostCommentComponent";
 function CommentComponent({ currentUser, comment }) {
   return (
     <>
-      <div className="post card-body m-2 p-2 shadow-lg rounded">
+      <div className="post m-2 p-2 shadow-lg rounded">
         <div className="post__header">
           {/* Header: avatar with username */}
           <Avatar
