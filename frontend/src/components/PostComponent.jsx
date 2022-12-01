@@ -5,6 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import PostComment from "./PostCommentComponent";
 import Buttons from './Buttons';
 import '../styles/PostComponent.css';
+import Moment from 'react-moment'
 import { FaPaw, FaComment, FaShareSquare } from "react-icons/fa";
 
 
@@ -22,7 +23,8 @@ function PostComponent({ currentUser, post }) {
             alt={post.pet_id.name}
             src={post.pet_id.profile_picture}
           />
-          <h3>{post.pet_id.name} {post.post_id && ' shared of ' + post.post_id.pet_id.name}</h3>
+          <h3>{post.pet_id.name} {post.post_id && ' shared post of ' + post.post_id.pet_id.name}
+          <br/> date created <Moment format="DD/MM/YYYY HH:MM">{post.date_created}</Moment></h3>
 
         </div>
         {/* Username + caption */}
