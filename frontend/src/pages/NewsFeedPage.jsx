@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import PostComment from '../components/PostCommentComponent'
 import PostComponent from '../components/PostComponent'
 import Navbar from '../components/SideBar/Navbar'
+import RightSideBar from '../components/RightSideBar/RightSideBar'
 import '../styles/NewsFeedPageStyles.css'
 
 
@@ -52,12 +53,11 @@ const NewsFeedPage = () => {
 
     return (
         <>
-            <Navbar />
-            <section className='newsfeed-page container d-flex justify-content-center m-2 p-2 '>
-
-                <div className=' '>
+            <section className='newsfeed-page m-2 p-2 '>
+            <Navbar/>
+                <div className='feed'>
                     {<div
-                        className='pet-type-container'>
+                        className='pet-type-container w-50 p-5 m-3'>
                         {
                             data.map((items) => (
                                 <div
@@ -110,6 +110,7 @@ const NewsFeedPage = () => {
                         </div>
                     </div>
                 </div>
+                <RightSideBar/>
             </section>
         </>
     )
