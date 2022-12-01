@@ -106,7 +106,7 @@ const PostComment = ({ currentUser, action, location, id}) => {
 
 
     return (
-        <section >
+        <section className="w-50 p-5 m-3 card" >
             <form
                 onSubmit={onSubmitFormHandler}
             >

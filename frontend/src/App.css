@@ -8,6 +8,11 @@
 
 body {
     background-color: #fbe6c7;
-    padding-left: 150px;
-    padding-right: 150px;
+/*     padding-left: 150px;
+    padding-right: 150px; */
+}
+
+.feed{
+    margin-left:50vh ;
+    width: 180vh;
 }
