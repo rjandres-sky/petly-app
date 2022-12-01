@@ -14,7 +14,7 @@ const Navbar = () => {
     return(
         <>
         <IconContext.Provider value={{color: 'black'}}>
-            <nav className="nav-menu ">
+            <div className="nav-menu ">
                 {/* Website logo and name */}
                 <div className='petly-title'>
                     <img className='logo' src={require("../../images/PetLy-logo-primary.png")}/>
@@ -32,7 +32,7 @@ const Navbar = () => {
                         )
                     })}
                 </ul>
-            </nav>
+            </div>
             </IconContext.Provider>
         </>
     )
