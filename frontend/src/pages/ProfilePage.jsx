@@ -59,7 +59,7 @@ const ProfilePage = () => {
                             onChange={handleProfilePicture}
                         />
                         <img
-                            className="rounded-circle shadow-4-strong h-25 w-25 shadow-lg"
+                            className="rounded-circle shadow-4-strong w-25 h-25 shadow-lg"
                             value={selectedFile}
                             src={selectedFile}
                             alt="profile_picture"
