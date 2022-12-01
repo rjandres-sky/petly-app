@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 import "../images/register.png";
+import "../images/PetLy-logo-primary.png";
+
+import '../styles/RegisterPageStyles.css'
 
 const RegisterPage = () => {
     const dispatch = useDispatch();
@@ -225,15 +228,15 @@ const RegisterPage = () => {
 
                                         <form onSubmit={onSubmitFormHandler}>
 
-                                            <div className="d-flex align-items-center mb-3 pb-1">
-                                                <img className="me-3" src={'./'} />
+                                            <div className="d-flex align-items-center">
+                                                <img className="logo" src={require('../images/PetLy-logo-primary.png')} />
                                             </div>
 
-                                            <span className="h2 fw-bold mb-0">Create your pet's account</span>
+                                            <span className="h3 fw-bold mb-0">Create your pet's account</span>
 
                                             <div className="form-outline mb-4">
                                                 <label className="form-label">
-                                                    Name
+                                                    Pet Name
                                                 </label>
                                                 <input
                                                     className="form-control form-control-md"
@@ -264,7 +267,7 @@ const RegisterPage = () => {
                                                     onChange={onChangePasswordHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-4">
+                                            {/* <div className="form-outline mb-4">
                                                 <label className="form-label">
                                                     Pet Name
                                                 </label>
@@ -274,7 +277,7 @@ const RegisterPage = () => {
                                                     value={petName}
                                                     onChange={onChangePetNamehandler}
                                                     required />
-                                            </div>
+                                            </div> */}
                                             <div className="form-outline mb-1">
                                                 <label className="form-label">
                                                     Choose profile picture
@@ -317,15 +320,16 @@ const RegisterPage = () => {
                                                 Already have an account?
                                                 <Link to="/"> Login </Link>
                                             </div>
+                                            <br></br>
                                             <a href="#!" className="small text-muted">Terms of use.</a>
                                             <a href="#!" className="small text-muted"> Privacy policy</a>
                                         </form>
-
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                    <img src={require("../images/register.png")} alt="login form"
-                                        className="img-fluid" />
+                                    <img src={require("../images/register.png")} 
+                                    alt="register form"
+                                    className="img-fluid resize" />
                                 </div>
                             </div>
                         </div>
