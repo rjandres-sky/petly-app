@@ -110,7 +110,6 @@ const PostComment = ({ currentUser, action, location, id}) => {
             <form
                 onSubmit={onSubmitFormHandler}
             >
-                <p className="h5 text-center"> Add new post </p>
                 <div className="form-outline mb-4">
                     <textarea
                         className="form-control form-control-lg"

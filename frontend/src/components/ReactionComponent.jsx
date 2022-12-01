@@ -99,6 +99,7 @@ const ReactionsComponent = ({ id, location, reacts }) => {
     return (
         <>
             <div className='buttons-container'>
+
                 {
                     location === "post" &&
                     <Tooltip title=" Share post" >
@@ -135,13 +136,14 @@ const ReactionsComponent = ({ id, location, reacts }) => {
             </div>
             {
                 showSelector &&
-                <div style={{ position: 'absolute' }}>
+                <div style={{ position: 'relative', left: "10px" }}>
                     <PokemonSelector
                         iconSize={25}
                         onSelect={emoji => handleSelect(emoji)}
                     />
                 </div>
             }
+
         </>
     )
 }
