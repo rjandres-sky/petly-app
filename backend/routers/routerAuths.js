@@ -53,7 +53,7 @@ router.post('/login', (request, response) => {
 });
 
 router.post('/register', upload.single('profile_picture'), async (request, response, next) => {
-    const url = req.protocol + '://' + req.get('host')
+    const url = request.protocol + '://' + request.get('host')
     await bcrypt.hash(request.body.password, 10)
         .then((hashedPassword) => {
             const pet = new Pets({ ...request.body, password: hashedPassword })
