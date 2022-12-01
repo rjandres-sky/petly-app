@@ -19,7 +19,7 @@ router.get('/', async (request, response) => {
                     await combinedPost.push(...result)
                     //allSharedPost = result
                     //console.log(combinedPost)
-                    response.status(200).send(combinedPost.sort(post => post.date_created))
+                    response.status(200).send(combinedPost.sort((a, b) => Number(b.date_created) - Number(a.date_created)))
                 })
         })
 })

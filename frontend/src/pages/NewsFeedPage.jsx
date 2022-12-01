@@ -87,7 +87,7 @@ const NewsFeedPage = () => {
                     </div>
                     <div
                         className='pet-post-container'>
-                        {allPost.reverse().filter(pet => pet.pet_id.pet_type.includes(posts)).map(post => {
+                        {allPost.filter(pet => pet.pet_id.pet_type.includes(posts)).map(post => {
                             return (
                                 <PostComponent currentUser={currentUser} post={post} />
                                 // <Buttons />
