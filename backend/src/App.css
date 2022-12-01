@@ -1,0 +1,18 @@
+/* .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+} */
+
+body {
+    background-color: #fbe6c7;
+/*     padding-left: 150px;
+    padding-right: 150px; */
+}
+
+.feed{
+    margin-left:50vh ;
+    width: 180vh;
+}

@@ -1,0 +1,50 @@
+.nav-menu{
+    background-color: white;
+    width: 45vh;
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+}
+
+.petly-title {
+    font-family: monospace ;
+    color: blue;
+    padding: 1em;
+    margin: 1em;
+    text-align: center;
+}
+
+.logo{
+    height: 8em;
+}
+
+.nav-text{
+    display:flex;
+    list-style: none;
+    height: 4em;
+}
+
+.nav-text a {
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    border-radius: 4px;
+}
+
+.nav-text a:hover {
+    background-color: gray;
+    color: black;
+}
+
+span{
+    margin-left: 1em;
+}

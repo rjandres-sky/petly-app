@@ -1,0 +1,8 @@
+.rightside-bar{
+    background-color:white;
+    position: Absolute;
+    right: 0px;
+    top: 0px; 
+    width: 45vh;
+    height: 300vh;
+}
