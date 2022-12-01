@@ -1,6 +1,6 @@
 .rightside-bar{
     background-color:white;
-    position: Absolute;
+    position: fixed;
     right: 0px;
     top: 0px; 
     width: 45vh;

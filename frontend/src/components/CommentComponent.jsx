@@ -8,6 +8,7 @@ function CommentComponent({ currentUser, comment }) {
   return (
     <>
       <div className="post card-body m-2 p-2 shadow-lg rounded">
+        <p className="h6"> Comments </p>
         <div className="post__header">
           {/* Header: avatar with username */}
           <Avatar

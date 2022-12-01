@@ -13,6 +13,7 @@ function PostComponent({ currentUser, post }) {
   return (
     <>
       <div className="post card-body w-50 m-3 p-3 shadow-lg rounded">
+      <p >{post.pet_id.name} added a post  </p>
         <div className="post__header">
           {/* Header: avatar with username */}
           <Avatar
