@@ -83,7 +83,7 @@ const RegisterPage = () => {
                 setProfilePicture("");
                 setPetType("");
                 setPetName("");
-                navigate("/");
+                navigate("/login");
             });
 
     };
@@ -228,13 +228,9 @@ const RegisterPage = () => {
 
                                         <form onSubmit={onSubmitFormHandler}>
 
-                                            <div className="d-flex align-items-center">
-                                                <img className="logo" src={require('../images/PetLy-logo-primary.png')} />
-                                            </div>
+                                            <p className="h3 fw-bold mb-0 text-center">Create your pet's account</p>
 
-                                            <span className="h3 fw-bold mb-0">Create your pet's account</span>
-
-                                            <div className="form-outline mb-4">
+                                            <div className="form-outline mb-1">
                                                 <label className="form-label">
                                                     Pet Name
                                                 </label>
@@ -245,7 +241,7 @@ const RegisterPage = () => {
                                                     onChange={onChangeNameHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-4">
+                                            <div className="form-outline mb-1">
                                                 <label className="form-label">
                                                     Username
                                                 </label>
@@ -256,7 +252,7 @@ const RegisterPage = () => {
                                                     onChange={onChangeUsernameHandler}
                                                     required />
                                             </div>
-                                            <div className="form-outline mb-4">
+                                            <div className="form-outline mb-1">
                                                 <label className="form-label">
                                                     Password
                                                 </label>
@@ -318,7 +314,7 @@ const RegisterPage = () => {
 
                                             <div className="form-outline mb-0 mt-2 text-center ">
                                                 Already have an account?
-                                                <Link to="/"> Login </Link>
+                                                <Link to="/" className='link-text'> Login </Link>
                                             </div>
                                             <br></br>
                                             <a href="#!" className="small text-muted">Terms of use.</a>
@@ -327,6 +323,7 @@ const RegisterPage = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-lg-5 d-none d-md-block">
+                                    <img className="logo" src={require('../images/PetLy-logo-primary.png')} />
                                     <img src={require("../images/register.png")} 
                                     alt="register form"
                                     className="img-fluid resize" />
