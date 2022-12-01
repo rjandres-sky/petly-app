@@ -7,7 +7,7 @@ const SharedPostsSchema = new Schema({
     post_id : {type : Schema.Types.ObjectId, ref : "posts", require : true},
     comments : [{type : Schema.Types.ObjectId, ref : 'comments', default : [], autopopulate : true}],
     reacts : [{type : Schema.Types.ObjectId, ref : 'reacts', default : [], autopopulate : true}],
-    body : {type : String, require : true},
+    //body : {type : String, require : true},
     date_created : {type : Date, default : Date.now},
     date_updated : {type : Date, default : Date.now}
 })
