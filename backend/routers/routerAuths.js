@@ -53,7 +53,7 @@ router.post('/login', (request, response) => {
 });
 
 router.post('/register', upload.single('profile_picture'), async (request, response, next) => {
-    const url = req.protocol + '://' + req.get('host')
+    const url = request.protocol + '://' + request.get('host')
     await bcrypt.hash(request.body.password, 10)
         .then((hashedPassword) => {
             const pet = new Pets({ ...request.body, password: hashedPassword })
@@ -68,16 +68,16 @@ router.post('/register', upload.single('profile_picture'), async (request, respo
 })
 
 router.put('/:id', upload.single('profile_picture'), async (request, response, next) => {
-            Pets.updateOne({_id : request.params.id},
-                {$set : request.body})
+    Pets.updateOne({ _id: request.params.id },
+        { $set: request.body })
+        .then(result => {
+            Pets.findOne({ _id: request.params.id })
+                .select({ password: 0, posts: 0, shared_posts: 0 })
                 .then(result => {
-                    Pets.findOne({ _id: request.params.id })
-                            .select({ password: 0, posts: 0, shared_posts: 0 })
-                            .then(result => {
-                                response.status(200).send(result)
-                            })
+                    response.status(200).send(result)
                 })
-                .catch(error => response.status(400).send(error))
+        })
+        .catch(error => response.status(400).send(error))
 
 })
 
