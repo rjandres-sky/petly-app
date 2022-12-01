@@ -6,7 +6,7 @@ import PostComment from "./PostCommentComponent";
 import Buttons from './Buttons';
 import '../styles/PostComponent.css';
 import Moment from 'react-moment'
-import { FaPaw, FaComment, FaShareSquare } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 
 function PostComponent({ currentUser, post }) {
@@ -15,6 +15,7 @@ function PostComponent({ currentUser, post }) {
   return (
     <>
       <div className="post card-body w-50 mt-3 p-4 shadow-lg rounded">
+        < FaTrash />
         <p className="text-center h4"> Posts </p>
         <div className="post__header">
           {/* Header: avatar with username */}
