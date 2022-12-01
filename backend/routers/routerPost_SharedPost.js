@@ -10,12 +10,10 @@ router.get('/', async (request, response) => {
     let combinedPost = []
 
     await Posts.find()
-        .populate({ path: 'pet_id', select: 'name pet_type pet_name' })
         .then(async result => {
             await combinedPost.push(...result)
 
             await SharedPosts.find()
-                .populate({ path: 'pet_id', select: 'name pet_type pet_name' })
                 .populate('post_id')
                 .then(async result =>{
                     await combinedPost.push(...result)
