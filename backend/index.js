@@ -26,7 +26,7 @@ server.use(bodyParser.urlencoded({
 server.use('/uploads', express.static("uploads"));
 
 
-mongoose.connect('mongodb+srv://petly_user:dictmerng2@cluster0.dfs2tzl.mongodb.net/petly?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://<user_name>:<password>@cluster0.dfs2tzl.mongodb.net/petly?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 server.get('/', (request, response) => {
     response.send(`Welcome to API`);
